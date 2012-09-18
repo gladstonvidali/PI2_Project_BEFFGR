@@ -18,15 +18,6 @@
             Nome: <input type="text" name="nome"/></br>
             Senha: <input type="text" name="senha"/></br>
             CPF: <input type="text" name="cpf"/></br>
-            Área de atuação: <select name="Area_Atuacao" size="1">
-                <%
-                List listas = lista.AreaAtuacao();
-                for (int i=0; i < listas.size(); i++){ %>
-                <option> <%= listas.get(i).toString() %> </option>
-                <%     
-                }
-                %>
-            </select></br>
             Universidade: <select name="Universidade" size="1">
                 <%
                 List Univ = lista.Universidade();

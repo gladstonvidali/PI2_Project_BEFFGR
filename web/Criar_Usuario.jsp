@@ -23,7 +23,7 @@
         user.setNome(request.getParameter("nome").toString());
         user.setSenha(request.getParameter("senha").toString());
         user.setCpf(request.getParameter("cpf").toString());
-        user.setCodCv(Integer.parseInt(request.getParameter("Area_Atuacao").toString()));
+        user.setCodCv(0);
         user.setCodFa(Integer.parseInt(request.getParameter("Universidade").toString()));
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session s = sessionFactory.openSession();
