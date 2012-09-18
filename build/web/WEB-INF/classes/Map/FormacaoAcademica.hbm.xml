@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 16, 2012 5:53:48 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Map.FormacaoAcademica" table="formacao_academica" catalog="mack">
+        <id name="codFa" type="int">
+            <column name="CodFA" />
+            <generator class="assigned" />
+        </id>
+        <property name="codUsr" type="int">
+            <column name="Cod_usr" not-null="true" />
+        </property>
+        <property name="codUniversidade" type="int">
+            <column name="Cod_universidade" not-null="true" />
+        </property>
+        <property name="situacao" type="string">
+            <column name="Situacao" length="20" not-null="true" />
+        </property>
+        <property name="semestreAtual" type="int">
+            <column name="Semestre_atual" not-null="true" />
+        </property>
+        <property name="semestreFormacao" type="int">
+            <column name="Semestre_formacao" not-null="true" />
+        </property>
+        <property name="anoFormacao" type="int">
+            <column name="Ano_formacao" not-null="true" />
+        </property>
+        <property name="fk1CodUsr" type="int">
+            <column name="fk1_Cod_usr" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

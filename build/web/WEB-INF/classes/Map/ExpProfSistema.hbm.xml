@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 16, 2012 5:53:48 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Map.ExpProfSistema" table="exp_prof_sistema" catalog="mack">
+        <id name="expProf" type="int">
+            <column name="Exp_Prof" />
+            <generator class="assigned" />
+        </id>
+        <property name="descricao" type="string">
+            <column name="Descricao" length="20" />
+        </property>
+        <property name="codEmpresa" type="java.lang.Integer">
+            <column name="Cod_empresa" />
+        </property>
+        <property name="fk1CodCv" type="int">
+            <column name="fk1_CodCV" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
