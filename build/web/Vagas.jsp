@@ -16,9 +16,9 @@
         <h1>Vagas encontradas</h1>
         
                 <%
-                List listas = lista.AreaAtuacao();
+                List listas = lista.Vagas(request.getParameter("busca"));
                 for (int i=0; i < listas.size(); i++){ %>
-                <%= i + " " + listas.get(i).toString() %>
+                <%= i + " -- " + listas.get(i).toString() + " || " %>
                 <%     
                 }
                 %>
