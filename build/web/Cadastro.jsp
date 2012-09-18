@@ -13,6 +13,13 @@
         <title>Cadastro</title>
     </head>
     <body>
+        
+        <!--
+        
+        Tela de Cadastro
+        -->
+        
+        
         <h1>Cadastro</h1>
         <form action="Criar_Usuario.jsp">
             Nome: <input type="text" name="nome"/></br>
