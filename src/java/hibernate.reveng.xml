@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="mack"/>
+  <table-filter match-name="area_atuacao_sistema"/>
+  <table-filter match-name="exp_prof_sistema"/>
+  <table-filter match-name="vagas"/>
+  <table-filter match-name="universidade"/>
+  <table-filter match-name="curso"/>
+  <table-filter match-name="formacao_academica"/>
+  <table-filter match-name="empresa"/>
+  <table-filter match-name="curriculo"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="usuario_vaga"/>
+</hibernate-reverse-engineering>

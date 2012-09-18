@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 16, 2012 5:53:48 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="Map.UsuarioVaga" table="usuario_vaga" catalog="mack">
+        <id name="codUv" type="int">
+            <column name="Cod_UV" />
+            <generator class="assigned" />
+        </id>
+        <property name="codUsr" type="java.lang.Integer">
+            <column name="Cod_usr" />
+        </property>
+        <property name="codVaga" type="java.lang.Integer">
+            <column name="Cod_Vaga" />
+        </property>
+        <property name="fk1CodUsr" type="int">
+            <column name="fk1_Cod_usr" not-null="true" />
+        </property>
+        <property name="fk2CodVaga" type="int">
+            <column name="fk2_Cod_Vaga" not-null="true" />
+        </property>
+        <property name="fk2Fk1CodAreaAtuacao" type="int">
+            <column name="fk2_fk1_Cod_area_atuacao" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
