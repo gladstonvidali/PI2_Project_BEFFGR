@@ -22,5 +22,10 @@
                 <%     
                 }
                 %>
+                <form>
+                    </br>
+                    <input type="submit" value="Sair" formaction="TelaInicial.jsp">
+                </form>
+                
     </body>
 </html>
