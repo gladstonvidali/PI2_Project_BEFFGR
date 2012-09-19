@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Cadastro
-    Created on : Sep 16, 2012, 3:55:12 PM
-    Author     : ffutigam
---%>
 
 <%@page import="Map.Usuario"%>
 <%@page import="org.hibernate.Session"%>

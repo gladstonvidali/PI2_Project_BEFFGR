@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Criar_Usuario
-    Created on : Sep 16, 2012, 4:40:19 PM
-    Author     : Gladston
---%>
 
 <%@page import="org.hibernate.Query"%>
 <%@page import="Map.Usuario"%>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Criar_Usuario
-    Created on : Sep 16, 2012, 4:40:19 PM
-    Author     : Gladston
---%>
+
 
 <%@page import="Map.Usuario"%>
 <%@page import="org.hibernate.Session"%>

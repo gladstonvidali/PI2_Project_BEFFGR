@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Cadastro
-    Created on : Sep 16, 2012, 3:55:12 PM
-    Author     : ffutigam
---%>
+
 <%@page import="java.util.*"%>
 <jsp:useBean id="lista" scope="session" class="Lista.Listar"/> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

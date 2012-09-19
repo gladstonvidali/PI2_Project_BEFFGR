@@ -1,9 +1,3 @@
-<%-- 
-    Document   : TelaInicial
-    Created on : Sep 16, 2012, 3:54:59 PM
-    Author     : ffutigam
---%>
-
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Menu
-    Created on : Sep 16, 2012, 3:55:41 PM
-    Author     : ffutigam
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

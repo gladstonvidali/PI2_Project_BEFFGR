@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Curriculo
-    Created on : Sep 18, 2012, 6:42:30 PM
-    Author     : gladstonvidali
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
