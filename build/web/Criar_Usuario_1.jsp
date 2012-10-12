@@ -26,8 +26,7 @@
         s.beginTransaction();
         s.createSQLQuery("UPDATE usuario SET "
             + "nome='"+request.getParameter("nome").toString()+"', "              
-            + "senha='"+request.getParameter("senha").toString()+"', "               
-            + "codFA='"+request.getParameter("Universidade").toString()+"' "
+            + "senha='"+request.getParameter("senha").toString()+"', "
             + "WHERE CPF='"+session.getAttribute("usuario").toString()+"'").executeUpdate();
         s.getTransaction().commit();
         s.close();

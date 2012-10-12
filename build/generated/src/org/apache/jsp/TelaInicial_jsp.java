@@ -44,8 +44,6 @@ public final class TelaInicial_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -56,7 +54,7 @@ public final class TelaInicial_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <h1>Tela Inicial</h1>\n");
       out.write("        \n");
       out.write("        <form action=\"Verificar_Login.jsp\">\n");
-      out.write("            Usuário: <input type=\"text\" name=\"usuario\" /></br>\n");
+      out.write("            CPF: <input type=\"text\" name=\"usuario\" /></br>\n");
       out.write("            Senha:   <input type=\"password\" name=\"senha\" /></br></br>\n");
       out.write("            <input type=\"submit\" value=\"Ok\" />\n");
       out.write("            <a href =\"Cadastro.jsp\">Cadastre-se</a>\n");

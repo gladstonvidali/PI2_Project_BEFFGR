@@ -21,18 +21,7 @@
             Nome: <input type="text" name="nome"/></br>
             Senha: <input type="text" name="senha"/></br>
             CPF: <input type="text" name="cpf"/></br>
-            Universidade: <select name="Universidade" size="1">
-                <%
-                List Univ = lista.Universidade();
-                for (int i=0; i < Univ.size(); i++){ %>
-                <option> <%= Univ.get(i).toString() %> </option>
-                <%     
-                }
-                %>
-            </select></br>
-            <!--
-            Experiência anterior: <input type="text" name="exp"/></br>
-            -->
+            
             <input type="submit" value="Submeter">
             <a href="TelaInicial.jsp">Cancelar</a>
         </form>
