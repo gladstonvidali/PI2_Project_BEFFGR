@@ -29,14 +29,7 @@
             Senha: <input type="text" name="senha" value="<%= session.getAttribute("senha") %>"/></br>
  
             CPF: <%= session.getAttribute("usuario") %></br>
-            Universidade: <select name="Universidade" size="1">
-                <%
-                List Univ = lista.Universidade();
-                for (int i=0; i < Univ.size(); i++){ %>
-                <option> <%= Univ.get(i).toString() %> </option>
-                <%     
-                }
-                %>
+            
             </select></br>
             
             <!--
