@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrando...</title>
+        <title>Editando Cadastro...</title>
     </head>
     <body>
         <h1>Cadastrando usuário no sistema.</h1>

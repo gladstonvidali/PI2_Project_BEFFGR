@@ -4,7 +4,6 @@
  */
 package Lista;
 
-import Map.*;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 import java.util.*;
@@ -41,7 +40,7 @@ public class Listar {
             Session s = sessionFactory.openSession();
         
             s.beginTransaction();
-            String hql = "SELECT cod_universidade FROM universidade";
+            String hql = "SELECT Nome FROM universidade";
             Query query = s.createSQLQuery(hql);
             List<String> results = query.list();
             return results;
@@ -108,6 +107,41 @@ public class Listar {
         return null;
     }
     
+    public List Empresas(){
+        
+        try{
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session s = sessionFactory.openSession();
+        
+            s.beginTransaction();
+            String hql = "SELECT Nome FROM Empresas";
+            Query query = s.createSQLQuery(hql);
+            List<String> results = query.list();
+            return results;
+        }catch (Exception e)  
+        {  
+          System.out.println(e);  
+        }  
+        return null;
+    }
+    
+    public List Cursos(){
+        
+        try{
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session s = sessionFactory.openSession();
+        
+            s.beginTransaction();
+            String hql = "SELECT Descricao FROM Curso";
+            Query query = s.createSQLQuery(hql);
+            List<String> results = query.list();
+            return results;
+        }catch (Exception e)  
+        {  
+          System.out.println(e);  
+        }  
+        return null;
+    }
     
     public List cpfFA(String cpf){
         

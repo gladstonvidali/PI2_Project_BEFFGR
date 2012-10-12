@@ -23,6 +23,9 @@
         <a href="Cadastro_1.jsp">Editar cadastro</a>
         </br>
         ---------------------------------------------
+        <a href="Curriculo.jsp">Editar informações profissionais</a>
+        </br>
+        ---------------------------------------------
         </br>
         <form action="Vagas.jsp">
             <input type="text" name="busca"></br>

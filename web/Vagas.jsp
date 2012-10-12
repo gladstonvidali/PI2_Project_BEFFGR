@@ -1,5 +1,5 @@
 
-<%@page import="Map.Usuario"%>
+<%@page import="MapH.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
@@ -17,10 +17,14 @@
         
                 <%
                 List listas = lista.Vagas(request.getParameter("busca"));
+                
                 for (int i=0; i < listas.size(); i++){ %>
                 <%= i + " -- " + listas.get(i).toString() + " || " %>
                 <%     
                 }
+                
+                Vagas vaga = new Vagas();
+                vaga.getDescricao();
                 %>
                 <form>
                     </br>
