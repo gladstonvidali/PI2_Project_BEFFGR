@@ -47,4 +47,22 @@ public class UsuarioDAO {
         criteria.setMaxResults(1);
         return (Usuario) criteria.uniqueResult();
     }
+    
+    public static void inserir1(Usuario usuario){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.persist(usuario);
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }
