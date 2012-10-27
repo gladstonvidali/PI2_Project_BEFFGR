@@ -1,4 +1,6 @@
 
+<%@page import="DAO.*"%>
+<%@page import="JPA2.*"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,55 +17,53 @@
         ---------------------------------------------
         CURRICULO
         ---------------------------------------------
+        <br/>
             Área de atuação: <select name="Area_Atuacao" size="1">
                 <%
-                List areaatu = lista.AreaAtuacao();
-                for (int i=0; i < areaatu.size(); i++){ %>
-                <option> <%= areaatu.get(i).toString() %> </option>
+                List<AreaAtuacaoSistema> areaatu = DAO.ListarDAO.listarAreaAtuacaoSistema();
+                for (AreaAtuacaoSistema a : areaatu ){ %>
+                <option> <%= a.getDescricao().toString() %> </option>
                 <%     
                 }
                 %>
+                </select>
                 <br/>
-             Empresa: <select name="Empresa" size="1">
-                <%
-                List emp = lista.Empresas();
-                for (int i=0; i < emp.size(); i++){ %>
-                <option> <%= emp.get(i).toString() %> </option>
-                <%     
-                }
-                %>
-                <br/>
+                
              Universidade: <select name="Universidade" size="1">
                 <%
-                List uni = lista.Empresas();
-                for (int i=0; i < uni.size(); i++){ %>
-                <option> <%= uni.get(i).toString() %> </option>
+                List<Universidade> uni = DAO.ListarDAO.listarUniversidade();
+                for (Universidade u : uni){ %>
+                <option> <%= u.getNome().toString() %> </option>
                 <%     
                 }
                 %>
+                </select>
                 <br/>
+                
              Cursos <select name="Universidade" size="1">
                 <%
-                List curso = lista.Empresas();
-                for (int i=0; i < curso.size(); i++){ %>
-                <option> <%= curso.get(i).toString() %> </option>
+                List<Curso> curso = DAO.ListarDAO.listarCurso();
+                for (Curso c : curso){ %>
+                <option> <%= c.getDescricao().toString() %> </option>
                 <%     
                 }
                 %>
+                </select>
                 <br/>
+                
              Situação:
-              <textarea name="Situacao" maxlength="20"/>
+             
+             <textarea name="Situacao" maxlength="20" cols="22" rows="1"></textarea>
                 <br/>
+                
              Certificado:
-                <textarea name="Certficado" maxlength="20"/>
-                <br/>
+             <textarea name="Certficado" maxlength="20" cols="22" rows="1"></textarea>             
+                <br/> 
              Semestre Atual:
-                <textarea name="SemAtual" maxlength="1"/>
+             <textarea name="SemAtual" maxlength="1" cols="1" rows="1"></textarea>
+                <br/>
              Semestre de Conclusão:
-                <textarea name="SemConc" maxlength="1"/>
-                
-                
-                   
-            </select></br>
+             <textarea name="SemConc" maxlength="1" cols="1" rows="1"></textarea>
+                </br>
     </body>
 </html>
