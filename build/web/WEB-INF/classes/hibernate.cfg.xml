@@ -4,8 +4,18 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.2.102:3306/mack?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mack</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+    <mapping class="JPA2.UsuarioVaga" resource="JPA2/UsuarioVaga.hbm.xml"/>
+    <mapping class="JPA2.Usuario" resource="JPA2/Usuario.hbm.xml"/>
+    <mapping class="JPA2.Empresa" resource="JPA2/Empresa.hbm.xml"/>
+    <mapping class="JPA2.AreaAtuacaoSistema" resource="JPA2/AreaAtuacaoSistema.hbm.xml"/>
+    <mapping class="JPA2.Curriculo" resource="JPA2/Curriculo.hbm.xml"/>
+    <mapping class="JPA2.Curso" resource="JPA2/Curso.hbm.xml"/>
+    <mapping class="JPA2.ExpProfSistema" resource="JPA2/ExpProfSistema.hbm.xml"/>
+    <mapping class="JPA2.FormacaoAcademica" resource="JPA2/FormacaoAcademica.hbm.xml"/>
+    <mapping class="JPA2.Universidade" resource="JPA2/Universidade.hbm.xml"/>
+    <mapping class="JPA2.Vagas" resource="JPA2/Vagas.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

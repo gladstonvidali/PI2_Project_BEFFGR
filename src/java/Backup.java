@@ -8,7 +8,7 @@
  * @author gladstonvidali
  */
 public class Backup {
-    
+    /*
     Universidade: <select name="Universidade" size="1">
                 <%
                 List Univ = lista.Universidade();
@@ -21,5 +21,7 @@ public class Backup {
             <!--
             Experiência anterior: <input type="text" name="exp"/></br>
             -->
-    
+    /*
+    * 
+    */
 }

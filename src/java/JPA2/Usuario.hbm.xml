@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 27, 2012 12:41:26 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="JPA2.Usuario" table="Usuario" catalog="mack">
+        <id name="codUsr" type="int">
+            <column name="Cod_Usr" />
+            <generator class="assigned" />
+        </id>
+        <property name="cpf" type="string">
+            <column name="CPF" length="11" not-null="true" unique="true" />
+        </property>
+        <property name="nome" type="string">
+            <column name="Nome" length="30" not-null="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="Senha" length="10" not-null="true" />
+        </property>
+        <property name="codCv" type="java.lang.Integer">
+            <column name="Cod_Cv" />
+        </property>
+        <property name="codFa" type="int">
+            <column name="Cod_Fa" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

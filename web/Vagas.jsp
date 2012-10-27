@@ -1,5 +1,4 @@
 
-<%@page import="MapH.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
