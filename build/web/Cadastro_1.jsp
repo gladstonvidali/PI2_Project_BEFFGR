@@ -18,7 +18,7 @@
            
             <%
             
-            Usuario u = DAO.UsuarioDAO.buscarUsuario(request.getParameter("cpf"));
+            Usuario u = DAO.UsuarioDAO.validarLogin(request.getParameter("cpf"), request.getParameter("senha"));
             %>
             
             CPF: <%= u.getCpf() %></br>
