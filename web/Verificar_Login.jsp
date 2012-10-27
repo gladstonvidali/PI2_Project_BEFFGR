@@ -15,8 +15,9 @@
     <body>
         <%
         
-        if ( DAO.UsuarioDAO.validarLogin(request.getParameter("cpf").toString(), 
-                    request.getParameter("senha").toString()) == true){
+        JPA2.Usuario usuario = DAO.UsuarioDAO.validarLogin(request.getParameter("cpf").toString(), 
+                    request.getParameter("senha").toString());
+        if (usuario != null){
                 %>
                 <jsp:forward page="Menu.jsp"/>
                 <%
