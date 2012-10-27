@@ -33,10 +33,6 @@
  
 
             </select></br>
-            
-            <!--
-            Experiência anterior: <select name="exp" size="1">
-            -->
             <input type="submit" value="Submeter">
             <a href="Menu.jsp">Cancelar</a>
         </form>

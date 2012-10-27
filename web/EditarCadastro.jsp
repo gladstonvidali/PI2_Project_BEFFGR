@@ -23,7 +23,7 @@
             usuario.setCpf(session.getAttribute("cpf").toString());
             usuario.setNome(request.getParameter("nome").toString());
             usuario.setSenha(request.getParameter("senha").toString());
-            UsuarioDAO.inserir(usuario);
+            UsuarioDAO.editar(usuario);
             
         %>
         
