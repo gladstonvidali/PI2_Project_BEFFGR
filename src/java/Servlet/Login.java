@@ -10,15 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import JPA2.*;
-import DAO.*;
-import java.util.List;
 
 /**
  *
  * @author gladstonvidali
  */
-public class UsuarioServlet extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -35,29 +32,19 @@ public class UsuarioServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            Usuario usuario = new Usuario();
-            usuario.setNome(request.getParameter("nome"));
-            usuario.setSenha(request.getParameter("senha"));
-            usuario.setCpf(request.getParameter("cpf"));
-            UsuarioDAO.inserir(usuario);
-            String sair = "<a href="+"Menu.jsp"+">Cancelar</a>";
+            
+            
+        
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Usuário inserido com sucesso!</title>");            
+            out.println("<title>Servlet Login</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<hr />");
-            /*
-            List<Usuario> listaUsuarios = UsuarioDAO.listarUsuarios();
-            for (Usuario u1 : listaUsuarios) {
-                out.println("<h3> - " + u1.getNome() + "</h3>");
-            }
-            */
-            out.println("<h1>Servlet UsuarioServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-            out.println(sair);
         } finally {            
             out.close();
         }

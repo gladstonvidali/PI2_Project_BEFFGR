@@ -10,7 +10,7 @@
         <h1>Tela Inicial</h1>
         
         <form action="Verificar_Login.jsp">
-            CPF: <input type="text" name="usuario" /></br>
+            CPF: <input type="text" name="cpf" /></br>
             Senha:   <input type="password" name="senha" /></br></br>
             <input type="submit" value="Ok" />
             <a href ="Cadastro.jsp">Cadastre-se</a>

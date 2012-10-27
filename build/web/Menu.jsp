@@ -8,10 +8,10 @@
     </head>
     <body>
         <% 
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("cpf") == null){
             
-        String usuario = request.getParameter("usuario");
-        session.setAttribute("usuario", usuario); 
+        String cpf = request.getParameter("cpf");
+        session.setAttribute("cpf", cpf); 
 
 
         String senha = request.getParameter("senha");

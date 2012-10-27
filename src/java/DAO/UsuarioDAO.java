@@ -48,5 +48,27 @@ public class UsuarioDAO {
         return (Usuario) criteria.uniqueResult();
     }
     
+     public static Usuario buscarUsuario(String cpf) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("cpf", cpf));
+        criteria.setMaxResults(1);
+        return (Usuario) criteria.uniqueResult();
+    }
+     
+     
+    public static boolean validarLogin(String cpf, String senha){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Usuario.class); 
+        criteria.add( Restrictions.like("cpf", cpf) );
+        criteria.add( Restrictions.like("senha", senha) );
+        criteria.setMaxResults(1);
+        Usuario u = (Usuario) criteria.uniqueResult();
+        if (u.getCpf().equals(cpf)){
+            return true;
+        }
+        return false;
+    }
+    
    
 }

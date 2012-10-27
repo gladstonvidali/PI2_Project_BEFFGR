@@ -1,6 +1,6 @@
 
 <%@page import="org.hibernate.Query"%>
-<%@page import="Map.Usuario"%>
+<%@page import="JPA2.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
@@ -14,32 +14,19 @@
     </head>
     <body>
         <%
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session s = sessionFactory.openSession();
         
-        s.beginTransaction();
-        String hql = "SELECT u.CPF FROM Usuario u WHERE u.CPF='"+request.getParameter("usuario")+"'";
-        String hql1 = "SELECT u.Senha FROM Usuario u WHERE u.Senha='"+request.getParameter("senha")+"'";
-        Query query = s.createSQLQuery(hql);
-        Query query1 = s.createSQLQuery(hql1);
-        List results = query.list();
-        List results1 = query1.list();
-        
-        if (!results.isEmpty() && !results1.isEmpty()) 
-        {
-            s.close();
-            %>
+        if ( DAO.UsuarioDAO.validarLogin(request.getParameter("cpf").toString(), 
+                    request.getParameter("senha").toString()) == true){
+                %>
                 <jsp:forward page="Menu.jsp"/>
-            <%
-        }
-        else
-        {
-            s.close();
-            %>
+                <%
+                    
+            }else{
+                %>
                 <jsp:forward page="TelaInicial.jsp"/>
-            <%
-        }
-        
+                <%
+            }
+       
       %>   
     </body>
 </html>

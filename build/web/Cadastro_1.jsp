@@ -14,22 +14,21 @@
     </head>
     <body>
         <h1>Cadastro</h1>
-        <form action="Criar_Usuario_1.jsp">
+        <form action="UsuarioServlet">
            
-            Nome: 
-                <%
-                List nome = lista.Nome(session.getAttribute("usuario").toString());
-                for (int i=0; i < nome.size(); i++){ %>
-                <input type="text" name="nome" value="<%= nome.get(i).toString() %>"/>
-                <%     
-                }
-                %>
-                </br>
-                
-            Senha: <input type="text" name="senha" value="<%= session.getAttribute("senha") %>"/></br>
- 
-            CPF: <%= session.getAttribute("usuario") %></br>
+            <%
             
+            Usuario u = DAO.UsuarioDAO.buscarUsuario(request.getParameter("cpf"));
+            %>
+            
+            CPF: <%= u.getCpf() %></br>
+            
+            
+            Nome: <input type="text" name="nome" value="<%= u.getNome() %>"/></br>
+                
+            Senha: <input type="text" name="senha" value="<%= u.getSenha() %>"/></br>
+ 
+
             </select></br>
             
             <!--
