@@ -34,7 +34,7 @@ public class UsuarioDAO {
         }
     }
     
-    public static List<Usuario> buscarTudo() {
+    public static List<Usuario> listarUsuarios() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
         return criteria.list();

@@ -36,7 +36,8 @@ public class UsuarioServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             Usuario usuario = new Usuario();
-            usuario.setNome(request.getParameter("nome_usuario"));
+            usuario.setNome(request.getParameter("nome"));
+            usuario.setSenha(request.getParameter("senha"));
             usuario.setCpf(request.getParameter("cpf"));
             UsuarioDAO.inserir(usuario);
             
@@ -47,10 +48,12 @@ public class UsuarioServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<hr />");
-            List<Usuario> listaUsuarios = UsuarioDAO.buscarTudo();
+            
+            List<Usuario> listaUsuarios = UsuarioDAO.listarUsuarios();
             for (Usuario u1 : listaUsuarios) {
                 out.println("<h3> - " + u1.getNome() + "</h3>");
             }
+            
             out.println("<h1>Servlet UsuarioServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");

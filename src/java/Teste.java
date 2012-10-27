@@ -17,15 +17,16 @@ public class Teste {
         
         
         Usuario u = new Usuario();
-        u.setCpf("26");
-        u.setNome("Bruno");
-        u.setSenha("Bruno");
+        u.setCpf("27");
+        u.setNome("Rodrigo");
+        u.setSenha("Rodrigo");
         u.setCodCv(0);
         u.setCodFa(0);
         
         DAO.UsuarioDAO.inserir(u);
         
-        List<Usuario> listaUsuarios = DAO.UsuarioDAO.buscarTudo();
+        List<Usuario> listaUsuarios = DAO.UsuarioDAO.listarUsuarios();
+        
         for (JPA2.Usuario us : listaUsuarios) {
             System.out.println(" - " + us.getNome());
         }

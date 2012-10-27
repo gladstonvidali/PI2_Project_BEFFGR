@@ -17,7 +17,7 @@
         
         
         <h1>Cadastro</h1>
-        <form action="Criar_Usuario.jsp">
+        <form action="UsuarioServlet.java" method="post">
             Nome: <input type="text" name="nome"/></br>
             Senha: <input type="text" name="senha"/></br>
             CPF: <input type="text" name="cpf"/></br>
