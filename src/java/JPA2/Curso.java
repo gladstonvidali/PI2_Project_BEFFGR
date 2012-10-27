@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,29 +19,24 @@ import javax.persistence.Table;
 public class Curso  implements java.io.Serializable {
 
 
-     private int codCurso;
+     private Integer codCurso;
      private String descricao;
 
     public Curso() {
     }
 
-	
-    public Curso(int codCurso) {
-        this.codCurso = codCurso;
-    }
-    public Curso(int codCurso, String descricao) {
-       this.codCurso = codCurso;
+    public Curso(String descricao) {
        this.descricao = descricao;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Curso", unique=true, nullable=false)
-    public int getCodCurso() {
+    public Integer getCodCurso() {
         return this.codCurso;
     }
     
-    public void setCodCurso(int codCurso) {
+    public void setCodCurso(Integer codCurso) {
         this.codCurso = codCurso;
     }
     

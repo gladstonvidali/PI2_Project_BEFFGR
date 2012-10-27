@@ -30,7 +30,8 @@
             Nome: <input type="text" name="nome" value="<%out.print(us.getNome());%>"/></br>
                 
             Senha: <input type="text" name="senha" value="<%out.print(us.getSenha());%>"/></br>
- 
+            
+            <% session.setAttribute("Usession", us); %>
 
             </select></br>
             <input type="submit" value="Submeter">

@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,7 +19,7 @@ import javax.persistence.Table;
 public class Curriculo  implements java.io.Serializable {
 
 
-     private int codCv;
+     private Integer codCv;
      private Integer codExpProf;
      private Integer cerficado;
      private int codAreaAtuacao;
@@ -26,25 +28,23 @@ public class Curriculo  implements java.io.Serializable {
     }
 
 	
-    public Curriculo(int codCv, int codAreaAtuacao) {
-        this.codCv = codCv;
+    public Curriculo(int codAreaAtuacao) {
         this.codAreaAtuacao = codAreaAtuacao;
     }
-    public Curriculo(int codCv, Integer codExpProf, Integer cerficado, int codAreaAtuacao) {
-       this.codCv = codCv;
+    public Curriculo(Integer codExpProf, Integer cerficado, int codAreaAtuacao) {
        this.codExpProf = codExpProf;
        this.cerficado = cerficado;
        this.codAreaAtuacao = codAreaAtuacao;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Cv", unique=true, nullable=false)
-    public int getCodCv() {
+    public Integer getCodCv() {
         return this.codCv;
     }
     
-    public void setCodCv(int codCv) {
+    public void setCodCv(Integer codCv) {
         this.codCv = codCv;
     }
     

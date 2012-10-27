@@ -15,15 +15,14 @@
     </head>
     <body>
         <%
+            JPA2.Usuario us = (JPA2.Usuario) session.getAttribute("Usession");
             
             String nome = request.getParameter("nome");
             session.setAttribute("nome", nome); 
             
-            Usuario usuario = new Usuario();
-            usuario.setCpf(session.getAttribute("cpf").toString());
-            usuario.setNome(request.getParameter("nome").toString());
-            usuario.setSenha(request.getParameter("senha").toString());
-            UsuarioDAO.editar(usuario);
+            us.setNome(request.getParameter("nome"));
+            us.setSenha(request.getParameter("senha"));
+            UsuarioDAO.editar(us);
             
         %>
         

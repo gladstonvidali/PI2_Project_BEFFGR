@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,31 +19,26 @@ import javax.persistence.Table;
 public class UsuarioVaga  implements java.io.Serializable {
 
 
-     private int codUv;
+     private Integer codUv;
      private Integer codUsr;
      private Integer codVaga;
 
     public UsuarioVaga() {
     }
 
-	
-    public UsuarioVaga(int codUv) {
-        this.codUv = codUv;
-    }
-    public UsuarioVaga(int codUv, Integer codUsr, Integer codVaga) {
-       this.codUv = codUv;
+    public UsuarioVaga(Integer codUsr, Integer codVaga) {
        this.codUsr = codUsr;
        this.codVaga = codVaga;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Uv", unique=true, nullable=false)
-    public int getCodUv() {
+    public Integer getCodUv() {
         return this.codUv;
     }
     
-    public void setCodUv(int codUv) {
+    public void setCodUv(Integer codUv) {
         this.codUv = codUv;
     }
     

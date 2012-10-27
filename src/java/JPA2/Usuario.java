@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -19,7 +21,7 @@ import javax.persistence.UniqueConstraint;
 public class Usuario  implements java.io.Serializable {
 
 
-     private int codUsr;
+     private Integer codUsr;
      private String cpf;
      private String nome;
      private String senha;
@@ -30,15 +32,13 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int codUsr, String cpf, String nome, String senha, int codFa) {
-        this.codUsr = codUsr;
+    public Usuario(String cpf, String nome, String senha, int codFa) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
         this.codFa = codFa;
     }
-    public Usuario(int codUsr, String cpf, String nome, String senha, Integer codCv, int codFa) {
-       this.codUsr = codUsr;
+    public Usuario(String cpf, String nome, String senha, Integer codCv, int codFa) {
        this.cpf = cpf;
        this.nome = nome;
        this.senha = senha;
@@ -46,14 +46,14 @@ public class Usuario  implements java.io.Serializable {
        this.codFa = codFa;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Usr", unique=true, nullable=false)
-    public int getCodUsr() {
+    public Integer getCodUsr() {
         return this.codUsr;
     }
     
-    public void setCodUsr(int codUsr) {
+    public void setCodUsr(Integer codUsr) {
         this.codUsr = codUsr;
     }
     

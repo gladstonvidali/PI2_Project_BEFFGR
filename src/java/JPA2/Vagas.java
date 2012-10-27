@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,7 +19,7 @@ import javax.persistence.Table;
 public class Vagas  implements java.io.Serializable {
 
 
-     private int codVaga;
+     private Integer codVaga;
      private Integer salario;
      private String descricao;
      private int codEmpresa;
@@ -27,27 +29,25 @@ public class Vagas  implements java.io.Serializable {
     }
 
 	
-    public Vagas(int codVaga, int codEmpresa, int codAreaAtuacao) {
-        this.codVaga = codVaga;
+    public Vagas(int codEmpresa, int codAreaAtuacao) {
         this.codEmpresa = codEmpresa;
         this.codAreaAtuacao = codAreaAtuacao;
     }
-    public Vagas(int codVaga, Integer salario, String descricao, int codEmpresa, int codAreaAtuacao) {
-       this.codVaga = codVaga;
+    public Vagas(Integer salario, String descricao, int codEmpresa, int codAreaAtuacao) {
        this.salario = salario;
        this.descricao = descricao;
        this.codEmpresa = codEmpresa;
        this.codAreaAtuacao = codAreaAtuacao;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Vaga", unique=true, nullable=false)
-    public int getCodVaga() {
+    public Integer getCodVaga() {
         return this.codVaga;
     }
     
-    public void setCodVaga(int codVaga) {
+    public void setCodVaga(Integer codVaga) {
         this.codVaga = codVaga;
     }
     

@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,29 +19,24 @@ import javax.persistence.Table;
 public class Universidade  implements java.io.Serializable {
 
 
-     private int codUniversidade;
+     private Integer codUniversidade;
      private String nome;
 
     public Universidade() {
     }
 
-	
-    public Universidade(int codUniversidade) {
-        this.codUniversidade = codUniversidade;
-    }
-    public Universidade(int codUniversidade, String nome) {
-       this.codUniversidade = codUniversidade;
+    public Universidade(String nome) {
        this.nome = nome;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Universidade", unique=true, nullable=false)
-    public int getCodUniversidade() {
+    public Integer getCodUniversidade() {
         return this.codUniversidade;
     }
     
-    public void setCodUniversidade(int codUniversidade) {
+    public void setCodUniversidade(Integer codUniversidade) {
         this.codUniversidade = codUniversidade;
     }
     

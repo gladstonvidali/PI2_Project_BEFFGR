@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -19,7 +21,7 @@ import javax.persistence.UniqueConstraint;
 public class Empresa  implements java.io.Serializable {
 
 
-     private int codEmpresa;
+     private Integer codEmpresa;
      private String cnpj;
      private String nome;
      private String senha;
@@ -27,21 +29,20 @@ public class Empresa  implements java.io.Serializable {
     public Empresa() {
     }
 
-    public Empresa(int codEmpresa, String cnpj, String nome, String senha) {
-       this.codEmpresa = codEmpresa;
+    public Empresa(String cnpj, String nome, String senha) {
        this.cnpj = cnpj;
        this.nome = nome;
        this.senha = senha;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Empresa", unique=true, nullable=false)
-    public int getCodEmpresa() {
+    public Integer getCodEmpresa() {
         return this.codEmpresa;
     }
     
-    public void setCodEmpresa(int codEmpresa) {
+    public void setCodEmpresa(Integer codEmpresa) {
         this.codEmpresa = codEmpresa;
     }
     

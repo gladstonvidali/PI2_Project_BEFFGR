@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 27, 2012 12:41:26 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="JPA2.Curriculo" table="Curriculo" catalog="mack">
-        <id name="codCv" type="int">
+        <id name="codCv" type="java.lang.Integer">
             <column name="Cod_Cv" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="codExpProf" type="java.lang.Integer">
             <column name="Cod_Exp_Prof" />

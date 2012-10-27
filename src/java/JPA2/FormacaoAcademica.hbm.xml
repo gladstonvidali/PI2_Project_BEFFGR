@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 27, 2012 12:41:26 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="JPA2.FormacaoAcademica" table="Formacao_Academica" catalog="mack">
-        <id name="codFa" type="int">
+        <id name="codFa" type="java.lang.Integer">
             <column name="Cod_Fa" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="codUsr" type="int">
             <column name="Cod_Usr" not-null="true" />

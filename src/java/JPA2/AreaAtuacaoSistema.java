@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,29 +19,24 @@ import javax.persistence.Table;
 public class AreaAtuacaoSistema  implements java.io.Serializable {
 
 
-     private int codAreaAtuacao;
+     private Integer codAreaAtuacao;
      private String descricao;
 
     public AreaAtuacaoSistema() {
     }
 
-	
-    public AreaAtuacaoSistema(int codAreaAtuacao) {
-        this.codAreaAtuacao = codAreaAtuacao;
-    }
-    public AreaAtuacaoSistema(int codAreaAtuacao, String descricao) {
-       this.codAreaAtuacao = codAreaAtuacao;
+    public AreaAtuacaoSistema(String descricao) {
        this.descricao = descricao;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Area_Atuacao", unique=true, nullable=false)
-    public int getCodAreaAtuacao() {
+    public Integer getCodAreaAtuacao() {
         return this.codAreaAtuacao;
     }
     
-    public void setCodAreaAtuacao(int codAreaAtuacao) {
+    public void setCodAreaAtuacao(Integer codAreaAtuacao) {
         this.codAreaAtuacao = codAreaAtuacao;
     }
     

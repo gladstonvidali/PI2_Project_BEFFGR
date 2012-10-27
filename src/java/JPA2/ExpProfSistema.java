@@ -1,9 +1,11 @@
 package JPA2;
-// Generated Oct 27, 2012 12:41:22 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,31 +19,26 @@ import javax.persistence.Table;
 public class ExpProfSistema  implements java.io.Serializable {
 
 
-     private int codExpProf;
+     private Integer codExpProf;
      private String descricao;
      private Integer codEmpresa;
 
     public ExpProfSistema() {
     }
 
-	
-    public ExpProfSistema(int codExpProf) {
-        this.codExpProf = codExpProf;
-    }
-    public ExpProfSistema(int codExpProf, String descricao, Integer codEmpresa) {
-       this.codExpProf = codExpProf;
+    public ExpProfSistema(String descricao, Integer codEmpresa) {
        this.descricao = descricao;
        this.codEmpresa = codEmpresa;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Cod_Exp_Prof", unique=true, nullable=false)
-    public int getCodExpProf() {
+    public Integer getCodExpProf() {
         return this.codExpProf;
     }
     
-    public void setCodExpProf(int codExpProf) {
+    public void setCodExpProf(Integer codExpProf) {
         this.codExpProf = codExpProf;
     }
     
