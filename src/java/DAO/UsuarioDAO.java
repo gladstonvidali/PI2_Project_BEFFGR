@@ -16,7 +16,7 @@ import org.hibernate.criterion.Restrictions;
 
 public class UsuarioDAO {
     
-    public static void inserir(Usuario usuario) {
+    public static void inserir(Object usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
@@ -48,21 +48,5 @@ public class UsuarioDAO {
         return (Usuario) criteria.uniqueResult();
     }
     
-    public static void inserir1(Usuario usuario){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            session.persist(usuario);
-            tx.commit();
-            tx = null;
-        } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
+   
 }

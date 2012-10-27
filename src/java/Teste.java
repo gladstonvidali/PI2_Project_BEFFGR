@@ -17,9 +17,9 @@ public class Teste {
         
         
         Usuario u = new Usuario();
-        u.setCpf("25");
-        u.setNome("Gladston");
-        u.setSenha("Gladston");
+        u.setCpf("26");
+        u.setNome("Bruno");
+        u.setSenha("Bruno");
         u.setCodCv(0);
         u.setCodFa(0);
         
