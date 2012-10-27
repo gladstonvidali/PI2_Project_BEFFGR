@@ -15,7 +15,7 @@
     </head>
     <body>
         <h1>Cadastro</h1>
-        <form action="UsuarioServlet">
+        <form action="EditarCadastro.jsp" method="post">
            
             <%
             String cpf = session.getAttribute("cpf").toString();
@@ -37,10 +37,6 @@
             <!--
             Experiência anterior: <select name="exp" size="1">
             -->
-            <%
-            String nome = request.getParameter("nome");
-            session.setAttribute("nome", nome);
-            %>
             <input type="submit" value="Submeter">
             <a href="Menu.jsp">Cancelar</a>
         </form>
