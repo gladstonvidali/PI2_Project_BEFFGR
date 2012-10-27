@@ -23,6 +23,7 @@ public class Teste {
         u.setCodCv(0);
         u.setCodFa(0);
         
+        DAO.UsuarioDAO.inserir(u);
         
         List<Usuario> listaUsuarios = DAO.UsuarioDAO.buscarTudo();
         for (JPA2.Usuario us : listaUsuarios) {
