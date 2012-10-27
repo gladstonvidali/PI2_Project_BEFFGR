@@ -1,6 +1,6 @@
 
 
-<%@page import="Map.Usuario"%>
+<%@page import="JPA2.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
