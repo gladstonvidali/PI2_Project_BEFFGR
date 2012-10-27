@@ -23,7 +23,7 @@
             CPF: <input type="text" name="cpf"/></br>
             
             <input type="submit" value="Submeter">
-            <a href="TelaInicial.jsp">Cancelar</a>
+            <a href="TelaInicial.jsp">Tela Inicial</a>
         </form>
     </body>
 </html>

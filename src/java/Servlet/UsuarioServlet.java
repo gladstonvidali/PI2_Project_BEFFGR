@@ -10,9 +10,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.*;
 import JPA2.*;
 import DAO.*;
 import java.util.List;
+import org.hibernate.Session;
 
 /**
  *
@@ -36,11 +38,14 @@ public class UsuarioServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             Usuario usuario = new Usuario();
-            usuario.setNome(request.getParameter("nome"));
-            usuario.setSenha(request.getParameter("senha"));
-            usuario.setCpf(request.getParameter("cpf"));
-            UsuarioDAO.inserir(usuario);
-            String sair = "<a href="+"Menu.jsp"+">Cancelar</a>";
+            if (request.getParameter("nome") != null){
+                usuario.setNome(request.getParameter("nome"));
+                usuario.setSenha(request.getParameter("senha"));
+                usuario.setCpf(request.getParameter("cpf"));
+                UsuarioDAO.inserir(usuario);
+            }
+               
+            String sair = "<a href="+"TelaInicial.jsp"+">Tela Inicial</a>";
             /* TODO output your page here. You may use following sample code. */
             out.println("<html>");
             out.println("<head>");
