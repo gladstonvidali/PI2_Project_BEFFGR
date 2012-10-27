@@ -15,36 +15,51 @@
         
         </br>
         ---------------------------------------------
+        <br/>
         CURRICULO
+        <br/>
         ---------------------------------------------
         <br/>
-            Área de atuação: <select name="Area_Atuacao" size="1">
+        
+        Usuario <select name="usuario">*
+        <%
+           List<Usuario> usuario = DAO.ListarDAO.listarUsuarios();
+           for(Usuario u : usuario){ %>
+           <option> <% out.print(u.getNome()); %> </option>
+           <%
+           }
+         %>
+        </select>
+        
+        
+        <br/>
+            Área de atuação: <select name="Area_Atuacao">
                 <%
                 List<AreaAtuacaoSistema> areaatu = DAO.ListarDAO.listarAreaAtuacaoSistema();
                 for (AreaAtuacaoSistema a : areaatu ){ %>
-                <option> <%= a.getDescricao().toString() %> </option>
+                <option> <% out.print(a.getDescricao()); %> </option>
                 <%     
                 }
-                %>
+                %>  
                 </select>
                 <br/>
                 
-             Universidade: <select name="Universidade" size="1">
+             Universidade: <select name="Universidade">
                 <%
                 List<Universidade> uni = DAO.ListarDAO.listarUniversidade();
                 for (Universidade u : uni){ %>
-                <option> <%= u.getNome().toString() %> </option>
+                <option> <% out.print(u.getNome()); %> </option>
                 <%     
                 }
                 %>
                 </select>
                 <br/>
                 
-             Cursos <select name="Universidade" size="1">
+             Cursos <select name="Universidade">
                 <%
                 List<Curso> curso = DAO.ListarDAO.listarCurso();
                 for (Curso c : curso){ %>
-                <option> <%= c.getDescricao().toString() %> </option>
+                <option> <% out.print(c.getDescricao()); %> </option>
                 <%     
                 }
                 %>
