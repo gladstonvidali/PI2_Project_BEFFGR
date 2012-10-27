@@ -39,7 +39,7 @@ public class UsuarioDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(usuario);
+            session.saveOrUpdate(usuario);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {
