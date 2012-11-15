@@ -47,7 +47,7 @@ public class Usuario  implements java.io.Serializable {
        this.codFa = codFa;
     }
    
-         public Integer getCodUsr() {
+    public Integer getCodUsr() {
         return this.codUsr;
     }
     

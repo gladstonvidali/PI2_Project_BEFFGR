@@ -17,24 +17,18 @@ import Repositorio.*;
 public class Teste {
     public static void main(String[] args){
         
-        /*
-        Usuario u = new Usuario();
-        u.setCpf("299");
-        u.setNome("Rodrigo");
-        u.setSenha("Rodrigo");
-        u.setCodCv(0);
-        u.setCodFa(0);
+      
+        Usuario u1 = DAO.UsuarioDAO.buscarUsuario(5); 
+        System.out.print(u1.getNome());
         
-        
-        DAO.UsuarioDAO.inserir(u); 
        
         List<Usuario> listaUsuarios = DAO.ListarDAO.listarUsuarios();
         
         for (JPA2.Usuario us : listaUsuarios) {
             System.out.println(" - " + us.getNome());
         }
-        */
         
+        /*
         RepUsuario rUser = new RepUsuario();
         
         Usuario U1 = new Usuario();
@@ -47,7 +41,10 @@ public class Teste {
         for (Usuario u2 : uLista){
             System.out.println(u2);
         }
-        
+        /*
+        * 
+        * 
+        */
         /*
         List<Usuario> listaUsuarios = UsuarioDAO.buscarTudo();
         for (Usuario u1 : listaUsuarios) {

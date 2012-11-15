@@ -72,9 +72,9 @@ public class VagasDAO {
     
     public static Vagas buscarVagas(int Cod_Vaga) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Vaga", Cod_Vaga));
-        criteria.setMaxResults(1);
-        return (Vagas) criteria.uniqueResult();
+        Vagas v = (Vagas) session.createCriteria(Vagas.class)
+            .add(Restrictions.eq("codVaga", Cod_Vaga))
+            .setMaxResults(1).list().get(0);
+        return v;
     }
 }
