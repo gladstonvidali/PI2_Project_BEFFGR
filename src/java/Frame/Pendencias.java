@@ -11,7 +11,7 @@ package jpi2;
 public class Pendencias extends javax.swing.JFrame {
 
     /**
-     * Creates new form Pendencias
+     * Creates new form Pendencias Fabio Futigami
      */
     public Pendencias() {
         initComponents();

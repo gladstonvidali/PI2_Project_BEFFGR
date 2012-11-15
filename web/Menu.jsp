@@ -7,7 +7,7 @@
         <title>MENU PRINCIPAL</title>
     </head>
     <body>
-        <% 
+        <%
         if (session.getAttribute("cpf") == null){
             
         String cpf = request.getParameter("cpf");
@@ -22,7 +22,8 @@
         <h1>Menu</h1>
         <a href="Cadastro_1.jsp">Editar cadastro</a>
         </br>
-        ---------------------------------------------
+        --------------------------------------------- 
+        </br>
         <a href="Curriculo.jsp">Editar informações profissionais</a>
         </br>
         ---------------------------------------------
