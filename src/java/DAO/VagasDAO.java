@@ -14,7 +14,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 
-public class EmpresaDAO {
+public class VagasDAO {
     
     public static void inserir(Object usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -52,20 +52,11 @@ public class EmpresaDAO {
         }
     }
   
-    public static Empresa buscarEmpresa(int Cod_Empresa) {
+    public static Vagas buscarVagas(int Cod_Vaga) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Empresa", Cod_Empresa));
+        criteria.add(Restrictions.eq("Cod_Vaga", Cod_Vaga));
         criteria.setMaxResults(1);
-        return (Empresa) criteria.uniqueResult();
+        return (Vagas) criteria.uniqueResult();
     }
-    
-     public static Empresa buscarEmpresa(String CNPJ) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("CNPJ", CNPJ));
-        criteria.setMaxResults(1);
-        return (Empresa) criteria.uniqueResult();
-    }
-   
 }

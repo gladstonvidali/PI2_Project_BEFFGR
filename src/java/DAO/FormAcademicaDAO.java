@@ -52,12 +52,12 @@ public class FormAcademicaDAO {
         }
     }
   
-    public static Usuario buscarFA(int Cod_Fa) {
+    public static FormacaoAcademica buscarFA(int Cod_Fa) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
         criteria.add(Restrictions.eq("Cod_Fa", Cod_Fa));
         criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
+        return (FormacaoAcademica) criteria.uniqueResult();
     }
     
    

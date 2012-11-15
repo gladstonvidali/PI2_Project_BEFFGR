@@ -52,12 +52,12 @@ public class CurriculoDAO {
         }
     }
   
-    public static Usuario buscarCV(int codCV) {
+    public static Curriculo buscarCV(int codCV) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
         criteria.add(Restrictions.eq("Cod_Cv", codCV));
         criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
+        return (Curriculo) criteria.uniqueResult();
     }
     
 }

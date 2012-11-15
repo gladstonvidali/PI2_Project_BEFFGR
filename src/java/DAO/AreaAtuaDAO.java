@@ -52,12 +52,12 @@ public class AreaAtuaDAO {
         }
     }
   
-    public static Usuario buscarAreaAtuacao(int codAreaAtuacao) {
+    public static AreaAtuacaoSistema buscarAreaAtuacao(int codAreaAtuacao) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
         criteria.add(Restrictions.eq("Cod_Area_Atuacao", codAreaAtuacao));
         criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
+        return (AreaAtuacaoSistema) criteria.uniqueResult();
     }
     
 }
