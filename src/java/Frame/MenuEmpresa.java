@@ -15,6 +15,7 @@ public class MenuEmpresa extends javax.swing.JFrame {
      */
     public MenuEmpresa() {
         initComponents();
+        MetodosTelas.centralizar(this);
     }
 
     /**
@@ -27,26 +28,43 @@ public class MenuEmpresa extends javax.swing.JFrame {
     private void initComponents() {
 
         label1 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnConsultarVagas = new javax.swing.JButton();
+        btnCadastrarVagas = new javax.swing.JButton();
+        btnPendencias = new javax.swing.JButton();
+        btnVisualizarCurriculos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         label1.setText("Menu");
 
-        jButton1.setText("Consultar Vagas");
+        btnConsultarVagas.setText("Consultar Vagas");
+        btnConsultarVagas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConsultarVagasMouseClicked(evt);
+            }
+        });
 
-        jButton2.setText("Cadastrar Vagas");
+        btnCadastrarVagas.setText("Cadastrar Vagas");
+        btnCadastrarVagas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarVagasMouseClicked(evt);
+            }
+        });
 
-        jButton3.setText("Pendências");
+        btnPendencias.setText("Pendências");
+        btnPendencias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPendenciasMouseClicked(evt);
+            }
+        });
 
-        jButton4.setText("Visualizar Currículos");
-
-        jButton5.setText("Sair");
+        btnVisualizarCurriculos.setText("Visualizar Currículos");
+        btnVisualizarCurriculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVisualizarCurriculosMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,20 +75,15 @@ public class MenuEmpresa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(btnVisualizarCurriculos)
+                            .addComponent(btnConsultarVagas)
+                            .addComponent(btnCadastrarVagas)
+                            .addComponent(btnPendencias))
                         .addGap(163, 225, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton5)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(155, 155, 155))))))
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,20 +91,38 @@ public class MenuEmpresa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnConsultarVagas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnCadastrarVagas)
                 .addGap(12, 12, 12)
-                .addComponent(jButton3)
+                .addComponent(btnPendencias)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addContainerGap())
+                .addComponent(btnVisualizarCurriculos)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConsultarVagasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarVagasMouseClicked
+        new ConsultarVagas().setVisible(true);
+
+    }//GEN-LAST:event_btnConsultarVagasMouseClicked
+
+    private void btnCadastrarVagasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarVagasMouseClicked
+        new CadastrarVagas().setVisible(true);
+
+    }//GEN-LAST:event_btnCadastrarVagasMouseClicked
+
+    private void btnPendenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPendenciasMouseClicked
+        new Pendencias().setVisible(true);
+
+    }//GEN-LAST:event_btnPendenciasMouseClicked
+
+    private void btnVisualizarCurriculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisualizarCurriculosMouseClicked
+        new VisualizarCurriculos().setVisible(true);
+
+    }//GEN-LAST:event_btnVisualizarCurriculosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -128,11 +159,10 @@ public class MenuEmpresa extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnCadastrarVagas;
+    private javax.swing.JButton btnConsultarVagas;
+    private javax.swing.JButton btnPendencias;
+    private javax.swing.JButton btnVisualizarCurriculos;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
