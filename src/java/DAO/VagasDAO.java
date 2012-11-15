@@ -16,12 +16,12 @@ import org.hibernate.criterion.Restrictions;
 
 public class VagasDAO {
     
-    public static void inserir(Object usuario) {
+    public static void inserir(Vagas vaga) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(usuario);
+            session.save(vaga);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {
@@ -34,12 +34,12 @@ public class VagasDAO {
         }
     }
     
-    public static void editar(Object usuario) {
+    public static void editar(Vagas vaga) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(usuario);
+            session.update(vaga);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {

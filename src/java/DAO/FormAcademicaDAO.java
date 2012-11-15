@@ -16,12 +16,12 @@ import org.hibernate.criterion.Restrictions;
 
 public class FormAcademicaDAO {
     
-    public static void inserir(Object usuario) {
+    public static void inserir(FormacaoAcademica formaca) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(usuario);
+            session.save(formaca);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {
@@ -34,12 +34,12 @@ public class FormAcademicaDAO {
         }
     }
     
-    public static void editar(Object usuario) {
+    public static void editar(FormacaoAcademica formaca) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(usuario);
+            session.update(formaca);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {

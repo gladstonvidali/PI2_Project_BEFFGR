@@ -16,12 +16,12 @@ import org.hibernate.criterion.Restrictions;
 
 public class AreaAtuaDAO {
     
-    public static void inserir(Object usuario) {
+    public static void inserir(AreaAtuacaoSistema areaatusis) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(usuario);
+            session.save(areaatusis);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {
@@ -34,12 +34,12 @@ public class AreaAtuaDAO {
         }
     }
     
-    public static void editar(Object usuario) {
+    public static void editar(AreaAtuacaoSistema areaatusis) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(usuario);
+            session.update(areaatusis);
             tx.commit();
             tx = null;
         } catch (HibernateException e) {

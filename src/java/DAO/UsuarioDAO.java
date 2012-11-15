@@ -16,7 +16,7 @@ import org.hibernate.criterion.Restrictions;
 
 public class UsuarioDAO {
     
-    public static void inserir(Object usuario) {
+    public static void inserir(Usuario usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
@@ -34,7 +34,7 @@ public class UsuarioDAO {
         }
     }
     
-    public static void editar(Object usuario) {
+    public static void editar(Usuario usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
