@@ -4,8 +4,7 @@ package JPA2;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,14 +17,23 @@ import javax.persistence.Table;
 )
 public class FormacaoAcademica  implements java.io.Serializable {
 
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="Cod_Fa", unique=true, nullable=false)
      private Integer codFa;
+    @Column(name="Cod_Usr", nullable=false)
      private int codUsr;
+    @Column(name="Cod_Universidade", nullable=false)
      private int codUniversidade;
+    @Column(name="Situacao", nullable=false, length=20)
      private String situacao;
+    @Column(name="Semestre_Atual", nullable=false)
      private int semestreAtual;
+    @Column(name="Semestre_Formacao", nullable=false)
      private int semestreFormacao;
+    @Column(name="Ano_Formacao", nullable=false)
      private int anoFormacao;
+    @Column(name="Cod_Curso", nullable=false)
      private int codCurso;
 
     public FormacaoAcademica() {
@@ -41,10 +49,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
        this.codCurso = codCurso;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
-    
-    @Column(name="Cod_Fa", unique=true, nullable=false)
-    public Integer getCodFa() {
+         public Integer getCodFa() {
         return this.codFa;
     }
     
@@ -52,8 +57,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.codFa = codFa;
     }
     
-    @Column(name="Cod_Usr", nullable=false)
-    public int getCodUsr() {
+        public int getCodUsr() {
         return this.codUsr;
     }
     
@@ -61,8 +65,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.codUsr = codUsr;
     }
     
-    @Column(name="Cod_Universidade", nullable=false)
-    public int getCodUniversidade() {
+        public int getCodUniversidade() {
         return this.codUniversidade;
     }
     
@@ -70,8 +73,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.codUniversidade = codUniversidade;
     }
     
-    @Column(name="Situacao", nullable=false, length=20)
-    public String getSituacao() {
+        public String getSituacao() {
         return this.situacao;
     }
     
@@ -79,8 +81,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.situacao = situacao;
     }
     
-    @Column(name="Semestre_Atual", nullable=false)
-    public int getSemestreAtual() {
+        public int getSemestreAtual() {
         return this.semestreAtual;
     }
     
@@ -88,8 +89,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.semestreAtual = semestreAtual;
     }
     
-    @Column(name="Semestre_Formacao", nullable=false)
-    public int getSemestreFormacao() {
+        public int getSemestreFormacao() {
         return this.semestreFormacao;
     }
     
@@ -97,8 +97,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.semestreFormacao = semestreFormacao;
     }
     
-    @Column(name="Ano_Formacao", nullable=false)
-    public int getAnoFormacao() {
+        public int getAnoFormacao() {
         return this.anoFormacao;
     }
     
@@ -106,8 +105,7 @@ public class FormacaoAcademica  implements java.io.Serializable {
         this.anoFormacao = anoFormacao;
     }
     
-    @Column(name="Cod_Curso", nullable=false)
-    public int getCodCurso() {
+        public int getCodCurso() {
         return this.codCurso;
     }
     

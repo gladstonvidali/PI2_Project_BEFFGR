@@ -5,7 +5,7 @@ package JPA2;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,9 +18,14 @@ import javax.persistence.Table;
 )
 public class ExpProfSistema  implements java.io.Serializable {
 
-
+    
+     @Id
+     @GeneratedValue (strategy= GenerationType.AUTO)
+     @Column(name="Cod_Exp_Prof", unique=true, nullable=false)
      private Integer codExpProf;
+    @Column(name="Descricao", length=20)
      private String descricao;
+    @Column(name="Cod_Empresa")
      private Integer codEmpresa;
 
     public ExpProfSistema() {
@@ -30,11 +35,8 @@ public class ExpProfSistema  implements java.io.Serializable {
        this.descricao = descricao;
        this.codEmpresa = codEmpresa;
     }
-   
-     @Id @GeneratedValue(strategy=IDENTITY)
     
-    @Column(name="Cod_Exp_Prof", unique=true, nullable=false)
-    public Integer getCodExpProf() {
+        public Integer getCodExpProf() {
         return this.codExpProf;
     }
     
@@ -42,8 +44,7 @@ public class ExpProfSistema  implements java.io.Serializable {
         this.codExpProf = codExpProf;
     }
     
-    @Column(name="Descricao", length=20)
-    public String getDescricao() {
+        public String getDescricao() {
         return this.descricao;
     }
     
@@ -51,8 +52,7 @@ public class ExpProfSistema  implements java.io.Serializable {
         this.descricao = descricao;
     }
     
-    @Column(name="Cod_Empresa")
-    public Integer getCodEmpresa() {
+        public Integer getCodEmpresa() {
         return this.codEmpresa;
     }
     

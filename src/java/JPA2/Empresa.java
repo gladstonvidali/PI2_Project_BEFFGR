@@ -5,7 +5,8 @@ package JPA2;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -20,10 +21,15 @@ import javax.persistence.UniqueConstraint;
 )
 public class Empresa  implements java.io.Serializable {
 
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="Cod_Empresa", unique=true, nullable=false)
      private Integer codEmpresa;
+    @Column(name="CNPJ", unique=true, nullable=false, length=15)
      private String cnpj;
+    @Column(name="Nome", nullable=false, length=20)
      private String nome;
+    @Column(name="Senha", nullable=false, length=10)
      private String senha;
 
     public Empresa() {
@@ -35,10 +41,7 @@ public class Empresa  implements java.io.Serializable {
        this.senha = senha;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
-    
-    @Column(name="Cod_Empresa", unique=true, nullable=false)
-    public Integer getCodEmpresa() {
+         public Integer getCodEmpresa() {
         return this.codEmpresa;
     }
     
@@ -46,8 +49,7 @@ public class Empresa  implements java.io.Serializable {
         this.codEmpresa = codEmpresa;
     }
     
-    @Column(name="CNPJ", unique=true, nullable=false, length=15)
-    public String getCnpj() {
+        public String getCnpj() {
         return this.cnpj;
     }
     
@@ -55,8 +57,7 @@ public class Empresa  implements java.io.Serializable {
         this.cnpj = cnpj;
     }
     
-    @Column(name="Nome", nullable=false, length=20)
-    public String getNome() {
+        public String getNome() {
         return this.nome;
     }
     
@@ -64,8 +65,7 @@ public class Empresa  implements java.io.Serializable {
         this.nome = nome;
     }
     
-    @Column(name="Senha", nullable=false, length=10)
-    public String getSenha() {
+        public String getSenha() {
         return this.senha;
     }
     

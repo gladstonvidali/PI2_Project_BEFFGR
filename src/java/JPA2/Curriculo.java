@@ -5,7 +5,7 @@ package JPA2;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,10 +18,15 @@ import javax.persistence.Table;
 )
 public class Curriculo  implements java.io.Serializable {
 
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="Cod_Cv", unique=true, nullable=false)
      private Integer codCv;
+    @Column(name="Cod_Exp_Prof")
      private Integer codExpProf;
+    @Column(name="Cerficado")
      private Integer cerficado;
+    @Column(name="Cod_Area_Atuacao", nullable=false)
      private int codAreaAtuacao;
 
     public Curriculo() {
@@ -37,10 +42,7 @@ public class Curriculo  implements java.io.Serializable {
        this.codAreaAtuacao = codAreaAtuacao;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
-    
-    @Column(name="Cod_Cv", unique=true, nullable=false)
-    public Integer getCodCv() {
+         public Integer getCodCv() {
         return this.codCv;
     }
     
@@ -48,8 +50,7 @@ public class Curriculo  implements java.io.Serializable {
         this.codCv = codCv;
     }
     
-    @Column(name="Cod_Exp_Prof")
-    public Integer getCodExpProf() {
+        public Integer getCodExpProf() {
         return this.codExpProf;
     }
     
@@ -57,8 +58,7 @@ public class Curriculo  implements java.io.Serializable {
         this.codExpProf = codExpProf;
     }
     
-    @Column(name="Cerficado")
-    public Integer getCerficado() {
+        public Integer getCerficado() {
         return this.cerficado;
     }
     
@@ -66,8 +66,7 @@ public class Curriculo  implements java.io.Serializable {
         this.cerficado = cerficado;
     }
     
-    @Column(name="Cod_Area_Atuacao", nullable=false)
-    public int getCodAreaAtuacao() {
+        public int getCodAreaAtuacao() {
         return this.codAreaAtuacao;
     }
     

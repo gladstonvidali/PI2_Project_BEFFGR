@@ -5,7 +5,8 @@ package JPA2;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,8 +19,12 @@ import javax.persistence.Table;
 )
 public class Curso  implements java.io.Serializable {
 
-
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="Cod_Curso", unique=true, nullable=false)
      private Integer codCurso;
+    @Column(name="Descricao", length=50)
      private String descricao;
 
     public Curso() {
@@ -28,11 +33,8 @@ public class Curso  implements java.io.Serializable {
     public Curso(String descricao) {
        this.descricao = descricao;
     }
-   
-     @Id @GeneratedValue(strategy=IDENTITY)
     
-    @Column(name="Cod_Curso", unique=true, nullable=false)
-    public Integer getCodCurso() {
+        public Integer getCodCurso() {
         return this.codCurso;
     }
     
@@ -40,8 +42,7 @@ public class Curso  implements java.io.Serializable {
         this.codCurso = codCurso;
     }
     
-    @Column(name="Descricao", length=50)
-    public String getDescricao() {
+        public String getDescricao() {
         return this.descricao;
     }
     

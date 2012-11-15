@@ -52,12 +52,25 @@ public class UsuarioDAO {
         }
     }
     
-    public static List<Usuario> listarUsuarios() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        return criteria.list();
-    }
     
+    public static void ioe(Object usuario) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
+            session.saveOrUpdate(usuario);
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
     public static Usuario buscarUsuario(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
