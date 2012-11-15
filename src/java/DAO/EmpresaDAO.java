@@ -72,18 +72,18 @@ public class EmpresaDAO {
   
     public static Empresa buscarEmpresa(int Cod_Empresa) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Empresa", Cod_Empresa));
-        criteria.setMaxResults(1);
-        return (Empresa) criteria.uniqueResult();
+        Empresa e =(Empresa) session.createCriteria(Empresa.class)
+            .add(Restrictions.eq("codEmpresa", Cod_Empresa))
+            .setMaxResults(1).list().get(0);
+        return e;
     }
     
      public static Empresa buscarEmpresa(String CNPJ) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("CNPJ", CNPJ));
-        criteria.setMaxResults(1);
-        return (Empresa) criteria.uniqueResult();
+        Empresa e =(Empresa) session.createCriteria(Empresa.class)
+            .add(Restrictions.eq("cnpj", CNPJ))
+            .setMaxResults(1).list().get(0);
+        return e;
     }
    
 }

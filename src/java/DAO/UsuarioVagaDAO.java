@@ -73,19 +73,19 @@ public class UsuarioVagaDAO {
     
     public static UsuarioVaga buscarUsuarioVaga(int Cod_Uv) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Uv", Cod_Uv));
-        criteria.setMaxResults(1);
-        return (UsuarioVaga) criteria.uniqueResult();
+        UsuarioVaga uv = (UsuarioVaga) session.createCriteria(UsuarioVaga.class)
+            .add(Restrictions.eq("codUv", Cod_Uv))
+            .setMaxResults(1).list().get(0);
+        return uv;
     }
     
     public static UsuarioVaga buscarUsuarioVaga(int Cod_Uv, int Cod_Usr) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Uv", Cod_Uv));
-        criteria.add(Restrictions.eq("Cod_Usr", Cod_Usr));
-        criteria.setMaxResults(1);
-        return (UsuarioVaga) criteria.uniqueResult();
+        UsuarioVaga uv = (UsuarioVaga) session.createCriteria(UsuarioVaga.class)
+            .add(Restrictions.eq("codUv", Cod_Uv))
+            .add(Restrictions.eq("codUsr", Cod_Usr))
+            .setMaxResults(1).list().get(0);
+        return uv;
     }
     
 }

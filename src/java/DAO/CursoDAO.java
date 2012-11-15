@@ -72,10 +72,10 @@ public class CursoDAO {
     
     public static Curso buscarCurso(int Cod_Curso) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Curso", Cod_Curso));
-        criteria.setMaxResults(1);
-        return (Curso) criteria.uniqueResult();
+        Curso c  = (Curso) session.createCriteria(Curso.class)
+            .add(Restrictions.eq("codCurso", Cod_Curso))
+            .setMaxResults(1).list().get(0);
+        return c;
     }
     
 }

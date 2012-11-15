@@ -73,10 +73,10 @@ public class UniversidadeDAO {
     
     public static Universidade buscarUniversidade(int Cod_Universidade) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Universidade", Cod_Universidade));
-        criteria.setMaxResults(1);
-        return (Universidade) criteria.uniqueResult();
+        Universidade u = (Universidade) session.createCriteria(Universidade.class)
+            .add(Restrictions.eq("codUniversidade", Cod_Universidade))
+            .setMaxResults(1).list().get(0);
+        return u;
     }
     
      

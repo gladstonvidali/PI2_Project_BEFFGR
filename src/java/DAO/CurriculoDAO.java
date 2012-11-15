@@ -71,10 +71,10 @@ public class CurriculoDAO {
     }
     public static Curriculo buscarCV(int codCV) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Cv", codCV));
-        criteria.setMaxResults(1);
-        return (Curriculo) criteria.uniqueResult();
+        Curriculo c = (Curriculo) session.createCriteria(Curriculo.class)
+            .add(Restrictions.eq("Cod_Cv", codCV))
+            .setMaxResults(1).list().get(0);
+        return c;
     }
     
 }

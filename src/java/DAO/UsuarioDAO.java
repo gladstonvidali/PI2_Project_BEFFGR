@@ -72,28 +72,29 @@ public class UsuarioDAO {
     
     public static Usuario buscarUsuario(int Cod_Usr) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("Cod_Usr", Cod_Usr));
-        criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
+        Usuario u = (Usuario) session.createCriteria(Usuario.class)
+            .add(Restrictions.eq("codUsr", Cod_Usr))
+            .setMaxResults(1).list().get(0);
+        return u;
     }
     
      public static Usuario buscarUsuario(String cpf) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("cpf", cpf));
-        criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         Usuario u = (Usuario) session.createCriteria(Usuario.class)
+                 .add( Restrictions.eq("cpf",cpf))
+                 .setMaxResults(1).list().get(0);
+         
+         return u;
     }
      
      
     public static Usuario validarLogin(String cpf, String senha){
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class); 
-        criteria.add( Restrictions.like("cpf", cpf) );
-        criteria.add( Restrictions.like("senha", senha) );
-        criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
+        Usuario u = (Usuario) session.createCriteria(Usuario.class)
+            .add( Restrictions.like("cpf", cpf) )
+            .add( Restrictions.like("senha", senha) )
+            .setMaxResults(1).list().get(0);
+        return u;
     }
     
    
