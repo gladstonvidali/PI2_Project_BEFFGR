@@ -51,6 +51,24 @@ public class AreaAtuaDAO {
             session.close();
         }
     }
+    
+    public static void remover(int Cod_Area_Atuacao){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(buscarAreaAtuacao(Cod_Area_Atuacao));
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
   
     public static AreaAtuacaoSistema buscarAreaAtuacao(int codAreaAtuacao) {
         Session session = HibernateUtil.getSessionFactory().openSession();

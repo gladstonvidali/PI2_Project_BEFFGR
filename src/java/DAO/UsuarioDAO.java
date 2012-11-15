@@ -52,10 +52,28 @@ public class UsuarioDAO {
         }
     }
   
-    public static Usuario buscarUsuario(int id) {
+    public static void remover(int Cod_Usr) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(buscarUsuario(Cod_Usr));
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public static Usuario buscarUsuario(int Cod_Usr) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("id", id));
+        criteria.add(Restrictions.eq("Cod_Usr", Cod_Usr));
         criteria.setMaxResults(1);
         return (Usuario) criteria.uniqueResult();
     }

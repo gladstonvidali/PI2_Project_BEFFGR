@@ -51,6 +51,24 @@ public class FormAcademicaDAO {
             session.close();
         }
     }
+    
+    public static void remover(int Cod_Fa) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(buscarFA(Cod_Fa));
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
   
     public static FormacaoAcademica buscarFA(int Cod_Fa) {
         Session session = HibernateUtil.getSessionFactory().openSession();

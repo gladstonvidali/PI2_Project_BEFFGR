@@ -51,6 +51,24 @@ public class EmpresaDAO {
             session.close();
         }
     }
+    
+    public static void remover(int Cod_Empresa){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(buscarEmpresa(Cod_Empresa));
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
   
     public static Empresa buscarEmpresa(int Cod_Empresa) {
         Session session = HibernateUtil.getSessionFactory().openSession();

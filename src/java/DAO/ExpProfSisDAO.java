@@ -51,6 +51,24 @@ public class ExpProfSisDAO {
             session.close();
         }
     }
+    
+    public static void remover(int Cod_Exp_Prof){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(buscarExpProfSis(Cod_Exp_Prof));
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
   
     public static ExpProfSistema buscarExpProfSis(int Cod_Exp_Prof) {
         Session session = HibernateUtil.getSessionFactory().openSession();

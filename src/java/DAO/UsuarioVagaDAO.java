@@ -51,7 +51,26 @@ public class UsuarioVagaDAO {
             session.close();
         }
     }
-  
+    
+    public static void remover(int Cod_Uv) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(buscarUsuarioVaga(Cod_Uv));
+            tx.commit();
+            tx = null;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    
     public static UsuarioVaga buscarUsuarioVaga(int Cod_Uv) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
