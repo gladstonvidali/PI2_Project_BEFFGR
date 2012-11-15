@@ -2,9 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frame;
+package jpi2;
 
-import JPA2.*;
 /**
  *
  * @author ffutigam
@@ -60,11 +59,6 @@ public class ManutencaoUniversidade extends javax.swing.JFrame {
         });
 
         btnAlterar.setText("Alterar");
-        btnAlterar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAlterarMouseClicked(evt);
-            }
-        });
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
@@ -147,22 +141,11 @@ public class ManutencaoUniversidade extends javax.swing.JFrame {
 
     private void btnInserirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInserirMouseClicked
         // TODO add your handling code here:
-        Universidade uni = new Universidade();
-        uni.setNome(txtNomeUniversidade.getText());
-        DAO.UsuarioDAO.ioe(uni);
     }//GEN-LAST:event_btnInserirMouseClicked
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarActionPerformed
-
-    private void btnAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlterarMouseClicked
-        // TODO add your handling code here:
-        Universidade uni = new Universidade();
-        uni.setCodUniversidade(Integer.parseInt(txtCodUniversidade.getText()));
-        uni.setNome(txtNomeUniversidade.getText());
-        DAO.UsuarioDAO.editar(uni);
-    }//GEN-LAST:event_btnAlterarMouseClicked
 
     /**
      * @param args the command line arguments

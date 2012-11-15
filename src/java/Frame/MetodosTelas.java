@@ -1,4 +1,4 @@
-package Frame;
+package jpi2;
 
 import java.awt.*;
 

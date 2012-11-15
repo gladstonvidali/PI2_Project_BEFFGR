@@ -14,7 +14,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 
-public class UsuarioDAO {
+public class CurriculoDAO {
     
     public static void inserir(Object usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -52,31 +52,12 @@ public class UsuarioDAO {
         }
     }
   
-    public static Usuario buscarUsuario(int id) {
+    public static Usuario buscarCV(int codCV) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("id", id));
+        criteria.add(Restrictions.eq("Cod_Cv", codCV));
         criteria.setMaxResults(1);
         return (Usuario) criteria.uniqueResult();
     }
     
-     public static Usuario buscarUsuario(String cpf) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.eq("cpf", cpf));
-        criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
-    }
-     
-     
-    public static Usuario validarLogin(String cpf, String senha){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Usuario.class); 
-        criteria.add( Restrictions.like("cpf", cpf) );
-        criteria.add( Restrictions.like("senha", senha) );
-        criteria.setMaxResults(1);
-        return (Usuario) criteria.uniqueResult();
-    }
-    
-   
 }
