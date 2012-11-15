@@ -21,16 +21,12 @@
         ---------------------------------------------
         <br/>
         
-        Usuario <select name="usuario">*
+        <form>
+        Nome:  
         <%
-           List<Usuario> usuario = DAO.ListarDAO.listarUsuarios();
-           for(Usuario u : usuario){ %>
-           <option> <% out.print(u.getNome()); %> </option>
-           <%
-           }
+           Usuario sU = (Usuario) session.getAttribute("Usuario");
+           out.print(sU.getNome());
          %>
-        </select>
-        
         
         <br/>
             Área de atuação: <select name="Area_Atuacao">
@@ -59,7 +55,7 @@
                 <%
                 List<Curso> curso = DAO.ListarDAO.listarCurso();
                 for (Curso c : curso){ %>
-                <option> <% out.print(c.getDescricao()); %> </option>
+                <option> <% out.print(c.getDescricao());%> </option>
                 <%     
                 }
                 %>
@@ -71,6 +67,11 @@
              <textarea name="Situacao" maxlength="20" cols="22" rows="1"></textarea>
                 <br/>
                 
+             Ano:
+             
+             <textarea name="Ano" maxlength="4" cols="3" rows="1"></textarea>
+                <br/>
+                
              Certificado:
              <textarea name="Certficado" maxlength="20" cols="22" rows="1"></textarea>             
                 <br/> 
@@ -80,5 +81,11 @@
              Semestre de Conclusão:
              <textarea name="SemConc" maxlength="1" cols="1" rows="1"></textarea>
                 </br>
+                
+             <input type="button" formaction="CadCurriculo.jsp" formmethod="post" value="Cadastrar"/>
+    
+             <input type="button" formaction="AltCurriculo.jsp" formmethod="post" value="Alterar"/>
+             
+        </form>
     </body>
 </html>

@@ -1,4 +1,5 @@
 
+<%@page import="JPA2.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,16 +16,20 @@
 
 
         String senha = request.getParameter("senha");
-        session.setAttribute("senha", senha); 
+        session.setAttribute("senha", senha);
         }
-
+        
+        Usuario sU = DAO.UsuarioDAO.buscarUsuario(session.getAttribute("cpf").toString());
+        session.setAttribute("Usuario", sU);
+        
         %>
         <h1>Menu</h1>
         <a href="Cadastro_1.jsp">Editar cadastro</a>
         </br>
         ---------------------------------------------
+        <br/>
         <a href="Curriculo.jsp">Editar informações profissionais</a>
-        </br>
+        <br/>
         ---------------------------------------------
         </br>
         <form action="Vagas.jsp">
