@@ -10,6 +10,7 @@ import JPA2.*;
 import Hibernate.*;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -47,7 +48,8 @@ public class ListarDAO {
     public static List<Empresa> listarEmpresa() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Empresa.class);
-        return criteria.list();
+        Query q = session.createQuery("from Empresa");
+        return q.list();
     }
     
     public static List<ExpProfSistema> listarExpProfSistema() {

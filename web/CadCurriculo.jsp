@@ -15,6 +15,7 @@
     </head>
     <body>
         <%
+        
         Usuario u = (Usuario) session.getAttribute("Usuario");
         FormacaoAcademica fa = new FormacaoAcademica();
         Curriculo c = new Curriculo();
@@ -23,11 +24,27 @@
         List<Universidade> uni = (List<Universidade>) session.getAttribute("Universidade");
         List<Curso> curso = (List<Curso>) session.getAttribute("Curso");
         
-        int cont1 = Integer.parseInt(request.getParameter("Harea_atu"));
-        int cont2 = Integer.parseInt(request.getParameter("Huni"));
-        int cont3 = Integer.parseInt(request.getParameter("Hcurso"));
-        out.print(areaatu.get(cont1).getDescricao());
+        String sCont1 = request.getParameter("Area_Atuacao");
+        sCont1 = String.valueOf(sCont1.charAt(0));
         
+        String sCont2 = request.getParameter("Universidade");
+        sCont2 = String.valueOf(sCont2.charAt(0));
+        
+        String sCont3 = request.getParameter("Curso");
+        sCont3 = String.valueOf(sCont3.charAt(0));
+        
+        int cont1 = Integer.parseInt(sCont1);
+        int cont2 = Integer.parseInt(sCont2);
+        int cont3 = Integer.parseInt(sCont3);
+        
+        out.print(cont1+"<br/>");
+        out.print(cont2+"<br/>");
+        out.print(cont3+"<br/>");
+        
+        out.print(areaatu.get(cont1).getDescricao()+"<br/>");
+        out.print(uni.get(cont2).getNome()+"<br/>");
+        out.print(curso.get(cont3).getDescricao()+"<br/>");
+        /*
         fa.setCodUniversidade(uni.get(cont2).getCodUniversidade());
         fa.setCodCurso(curso.get(cont3).getCodCurso());
         fa.setCodUsr(u.getCodUsr());
@@ -40,6 +57,7 @@
         c.setCerficado(request.getAttribute("Certificado").toString());
         c.setCodAreaAtuacao(areaatu.get(cont1).getCodAreaAtuacao());
         c.setCodUsr(u.getCodUsr());
+        * */
         %>
     </body>
 </html>
