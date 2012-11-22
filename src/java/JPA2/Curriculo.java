@@ -25,7 +25,7 @@ public class Curriculo  implements java.io.Serializable {
     @Column(name="Cod_Exp_Prof")
      private Integer codExpProf;
     @Column(name="Cerficado")
-     private Integer cerficado;
+     private String cerficado;
     @Column(name="Cod_Area_Atuacao", nullable=false)
      private int codAreaAtuacao;
     @Column(name="Cod_Usr")
@@ -39,7 +39,7 @@ public class Curriculo  implements java.io.Serializable {
     public Curriculo(int codAreaAtuacao) {
         this.codAreaAtuacao = codAreaAtuacao;
     }
-    public Curriculo(Integer codExpProf, Integer cerficado, int codAreaAtuacao) {
+    public Curriculo(Integer codExpProf, String cerficado, int codAreaAtuacao) {
        this.codExpProf = codExpProf;
        this.cerficado = cerficado;
        this.codAreaAtuacao = codAreaAtuacao;
@@ -61,11 +61,11 @@ public class Curriculo  implements java.io.Serializable {
         this.codExpProf = codExpProf;
     }
     
-        public Integer getCerficado() {
+        public String getCerficado() {
         return this.cerficado;
     }
     
-    public void setCerficado(Integer cerficado) {
+    public void setCerficado(String cerficado) {
         this.cerficado = cerficado;
     }
     

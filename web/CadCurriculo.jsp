@@ -37,7 +37,9 @@
         fa.setSemestreFormacao(Integer.parseInt(request.getParameter("SemConc").toString()));
         DAO.FormAcademicaDAO.inserir(fa);
         
-        c.set
+        c.setCerficado(request.getAttribute("Certificado").toString());
+        c.setCodAreaAtuacao(areaatu.get(cont1).getCodAreaAtuacao());
+        c.setCodUsr(u.getCodUsr());
         %>
     </body>
 </html>
