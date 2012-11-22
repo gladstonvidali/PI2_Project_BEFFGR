@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 22, 2012 5:49:30 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="JPA2.Curriculo" table="Curriculo" catalog="mack">
         <id name="codCv" type="java.lang.Integer">
@@ -12,10 +12,13 @@
             <column name="Cod_Exp_Prof" />
         </property>
         <property name="cerficado" type="string">
-            <column name="Cerficado" />
+            <column name="Cerficado" length="20" />
         </property>
-        <property name="codAreaAtuacao" type="int">
-            <column name="Cod_Area_Atuacao" not-null="true" />
+        <property name="codAreaAtuacao" type="java.lang.Integer">
+            <column name="Cod_Area_Atuacao" unique="true" />
+        </property>
+        <property name="codUsr" type="java.lang.Integer">
+            <column name="Cod_Usr" unique="true" />
         </property>
     </class>
 </hibernate-mapping>

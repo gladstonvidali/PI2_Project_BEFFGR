@@ -22,21 +22,18 @@
                 Vagas em aberto: <select name="Vagas">
                 <%
                 List<Vagas> vagas = DAO.ListarDAO.listarVagas();
-                for (int cont1=0; cont1 < vagas.size();cont1++){ 
-                    Vagas a = vagas.get(cont1);
+
+                for(int cont1=0;cont1<vagas.size();cont1++){
+                    Vagas v = vagas.get(cont1);
+                    AreaAtuacaoSistema aa = DAO.AreaAtuaDAO.buscarAreaAtuacao(v.getCodAreaAtuacao());
                     %>
-                <option> 
-                    <% 
-                        AreaAtuacaoSistema aa = DAO.AreaAtuaDAO.buscarAreaAtuacao(a.getCodAreaAtuacao());
-   
-                        out.print(cont1 +" - "+ a.getDescricao()+"<br/>"); 
-                        out.print("Salário :"+a.getSalario());
-                        out.print("Área de Atuação : "+aa.getDescricao());
-                    %>
-                </option>
-                <%     
+                    <option> 
+                        <%
+                        out.print(cont1 + " - "+ v.getDescricao()+ " -R$: "+v.getSalario()+ " -Area de Atuação: "+aa.getDescricao());
+                        %>
+                    </option>
+                    <%
                 }
-                
                 session.setAttribute("ListVagas", vagas);
                 %>  
                 </select>

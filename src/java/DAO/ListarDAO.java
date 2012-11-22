@@ -79,6 +79,7 @@ public class ListarDAO {
     public static List<Vagas> listarVagas() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Vagas.class);
-        return criteria.list();
+        Query q = session.createQuery("from Vagas");
+        return q.list();
     }
 }

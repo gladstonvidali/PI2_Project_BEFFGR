@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 27, 2012 7:04:32 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 22, 2012 5:49:30 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="JPA2.Usuario" table="Usuario" catalog="mack">
         <id name="codUsr" type="java.lang.Integer">
@@ -9,19 +9,19 @@
             <generator class="identity" />
         </id>
         <property name="cpf" type="string">
-            <column name="CPF" length="11" not-null="true" unique="true" />
+            <column name="CPF" length="11" unique="true" />
         </property>
         <property name="nome" type="string">
-            <column name="Nome" length="30" not-null="true" />
+            <column name="Nome" length="30" />
         </property>
         <property name="senha" type="string">
-            <column name="Senha" length="10" not-null="true" />
+            <column name="Senha" length="10" />
         </property>
         <property name="codCv" type="java.lang.Integer">
-            <column name="Cod_Cv" />
+            <column name="Cod_Cv" unique="true" />
         </property>
-        <property name="codFa" type="int">
-            <column name="Cod_Fa" not-null="true" />
+        <property name="codFa" type="java.lang.Integer">
+            <column name="Cod_Fa" unique="true" />
         </property>
     </class>
 </hibernate-mapping>
