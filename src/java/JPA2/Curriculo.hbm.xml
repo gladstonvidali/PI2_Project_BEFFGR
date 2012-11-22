@@ -11,7 +11,7 @@
         <property name="codExpProf" type="java.lang.Integer">
             <column name="Cod_Exp_Prof" />
         </property>
-        <property name="cerficado" type="java.lang.Integer">
+        <property name="cerficado" type="string">
             <column name="Cerficado" />
         </property>
         <property name="codAreaAtuacao" type="int">

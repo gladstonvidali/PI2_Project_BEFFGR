@@ -59,7 +59,7 @@ public class UsuarioServlet extends HttpServlet {
                 out.println("<h3> - " + u1.getNome() + "</h3>");
             }
             */
-            out.println("<h1>Servlet UsuarioServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Usuário inserido com sucesso!</h1>");
             out.println("</body>");
             out.println("</html>");
             out.println(sair);

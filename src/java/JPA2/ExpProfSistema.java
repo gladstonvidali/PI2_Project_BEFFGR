@@ -22,6 +22,8 @@ public class ExpProfSistema  implements java.io.Serializable {
      private String descricao;
     @Column(name="Cod_Empresa")
      private Integer codEmpresa;
+    @Column( name="Cod_Usr", length=11)
+     private Integer codUsr;
 
     public ExpProfSistema() {
     }
@@ -56,6 +58,13 @@ public class ExpProfSistema  implements java.io.Serializable {
     }
 
 
+    public Integer getCodUsr() {
+        return codUsr;
+    }
+
+    public void setCodUsr(Integer codUsr) {
+        this.codUsr = codUsr;
+    }
 
 
 }

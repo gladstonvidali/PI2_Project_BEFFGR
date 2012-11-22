@@ -14,5 +14,8 @@
         <property name="codEmpresa" type="java.lang.Integer">
             <column name="Cod_Empresa" />
         </property>
+        <property name="codUsr" type="java.lang.Integer">
+            <column name="Cod_Usr" length="11" />
+        </property>
     </class>
 </hibernate-mapping>

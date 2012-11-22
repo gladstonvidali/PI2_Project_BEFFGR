@@ -9,6 +9,7 @@ import JPA2.*;
 import Hibernate.*;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -78,5 +79,30 @@ public class FormAcademicaDAO {
         return fa;
     }
     
-   
+    public static FormacaoAcademica buscarFAcodusr(int Cod_Usr) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        FormacaoAcademica fa = (FormacaoAcademica) session.createCriteria(FormacaoAcademica.class)
+            .add(Restrictions.eq("codUsr", Cod_Usr))
+            .setMaxResults(1).list().get(0);
+        return fa;
+    }
+    
+    public static Boolean buscarFA_CodUsr(int Cod_Usr) {
+        boolean status = false;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria crit = session.createCriteria(FormacaoAcademica.class)
+            .add(Restrictions.eq("codUsr", Cod_Usr));    
+        if (crit.uniqueResult() == null){
+            status = false;
+        }else{
+            status = true;
+        }
+        return status;
+    }
+    
+    
+        
+    
 }
+   
+

@@ -78,4 +78,12 @@ public class ExpProfSisDAO {
         return e;
     }
     
+    public static ExpProfSistema buscarExpProfSisCod_Usr(int Cod_Usr) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        ExpProfSistema e = (ExpProfSistema) session.createCriteria(ExpProfSistema.class)
+                .add(Restrictions.eq("Cod_Usr", Cod_Usr))
+                .setMaxResults(1).list().get(0);
+        return e;
+    }
+    
 }
