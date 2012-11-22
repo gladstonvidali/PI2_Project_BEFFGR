@@ -33,8 +33,8 @@
         ---------------------------------------------
         </br>
         <form action="Vagas.jsp">
-            <input type="text" name="busca"></br>
-            <input type="submit" value="Buscar_vaga"></br>
+            
+            <input type="submit" value="Painel de Vagas"></br>
             <input type="submit" value="Sair" formaction="TelaInicial.jsp">
         </form>
     </body>

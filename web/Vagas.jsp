@@ -13,7 +13,7 @@
         <title>Vagas</title>
     </head>
     <body>
-        <form>
+        <form action="UsuarioVaga.jsp">
         <h1>Vagas encontradas</h1>
         
                 <%
@@ -36,11 +36,12 @@
                 </option>
                 <%     
                 }
+                
+                session.setAttribute("ListVagas", vagas);
                 %>  
                 </select>
                 <br/>
-                %>
-                    
+                
                 <input type="submit" value="Cadastrar"/></br>
        
                 <input type="submit" value="Menu" formaction="Menu.jsp">
