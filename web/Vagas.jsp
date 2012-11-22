@@ -1,4 +1,5 @@
-
+<%@page import="JPA2.*"%>
+<%@page import="DAO.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
@@ -12,22 +13,37 @@
         <title>Vagas</title>
     </head>
     <body>
+        <form>
         <h1>Vagas encontradas</h1>
         
                 <%
-                List listas = lista.Vagas(request.getParameter("busca"));
-                
-                for (int i=0; i < listas.size(); i++){ %>
-                <%= i + " -- " + listas.get(i).toString() + " || " %>
+                Usuario sU = (Usuario) session.getAttribute("Usuario");
+                %>
+                Vagas em aberto: <select name="Vagas">
+                <%
+                List<Vagas> vagas = DAO.ListarDAO.listarVagas();
+                for (int cont1=0; cont1 < vagas.size();cont1++){ 
+                    Vagas a = vagas.get(cont1);
+                    %>
+                <option> 
+                    <% 
+                        AreaAtuacaoSistema aa = DAO.AreaAtuaDAO.buscarAreaAtuacao(a.getCodAreaAtuacao());
+   
+                        out.print(cont1 +" - "+ a.getDescricao()+"<br/>"); 
+                        out.print("Salário :"+a.getSalario());
+                        out.print("Área de Atuação : "+aa.getDescricao());
+                    %>
+                </option>
                 <%     
                 }
-                
-                Vagas vaga = new Vagas();
-                vaga.getDescricao();
+                %>  
+                </select>
+                <br/>
                 %>
-                <form>
-                    </br>
-                    <input type="submit" value="Sair" formaction="TelaInicial.jsp">
+                    
+                <input type="submit" value="Cadastrar"/></br>
+       
+                <input type="submit" value="Menu" formaction="Menu.jsp">
                 </form>
                 
     </body>
