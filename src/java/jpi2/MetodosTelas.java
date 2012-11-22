@@ -1,5 +1,5 @@
-package jpi2;
 
+package jpi2;
 import java.awt.*;
 
 public class MetodosTelas {

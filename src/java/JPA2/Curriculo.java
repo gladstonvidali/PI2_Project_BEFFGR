@@ -28,6 +28,9 @@ public class Curriculo  implements java.io.Serializable {
      private Integer cerficado;
     @Column(name="Cod_Area_Atuacao", nullable=false)
      private int codAreaAtuacao;
+    @Column(name="Cod_Usr")
+     private int codUsr;
+
 
     public Curriculo() {
     }
@@ -72,6 +75,15 @@ public class Curriculo  implements java.io.Serializable {
     
     public void setCodAreaAtuacao(int codAreaAtuacao) {
         this.codAreaAtuacao = codAreaAtuacao;
+    }
+    
+    
+    public int getCodUsr() {
+        return codUsr;
+    }
+
+    public void setCodUsr(int codUsr) {
+        this.codUsr = codUsr;
     }
 
 

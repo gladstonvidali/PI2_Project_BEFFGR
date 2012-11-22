@@ -4,6 +4,7 @@
  */
 package jpi2;
 
+
 /**
  *
  * @author ffutigam
@@ -124,14 +125,14 @@ public class MenuAdm extends javax.swing.JFrame {
             }
         });
         MnuManutencaoAreaAtuacao.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
-            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
-            }
-            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
-            }
             public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
             }
             public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
                 MnuManutencaoAreaAtuacaoMenuDragMouseExited(evt);
+            }
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
             }
         });
         MnuPrincipal.add(MnuManutencaoAreaAtuacao);

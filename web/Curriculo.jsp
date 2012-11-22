@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:useBean id="lista" scope="session" class="Lista.Listar"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Informações Profissionais</title>
     </head>
@@ -21,7 +20,7 @@
         ---------------------------------------------
         <br/>
         
-        <form>
+        <form action="CadCurriculo.jsp">
         Nome:  
         <%
            Usuario sU = (Usuario) session.getAttribute("Usuario");
@@ -32,8 +31,12 @@
             Área de atuação: <select name="Area_Atuacao">
                 <%
                 List<AreaAtuacaoSistema> areaatu = DAO.ListarDAO.listarAreaAtuacaoSistema();
-                for (AreaAtuacaoSistema a : areaatu ){ %>
-                <option> <% out.print(a.getDescricao()); %> </option>
+                for (int cont1=0; cont1<areaatu.size();cont1++){ 
+                    AreaAtuacaoSistema a = areaatu.get(cont1); %>
+                <option> 
+                    <% out.print(a.getDescricao()); %>
+                    <input type="hidden" name="Harea_atu" value="<%=cont1%>"/>
+                </option>
                 <%     
                 }
                 %>  
@@ -43,19 +46,27 @@
              Universidade: <select name="Universidade">
                 <%
                 List<Universidade> uni = DAO.ListarDAO.listarUniversidade();
-                for (Universidade u : uni){ %>
-                <option> <% out.print(u.getNome()); %> </option>
+                for (int cont2=0;cont2<uni.size();cont2++){ 
+                    Universidade u = uni.get(cont2);%>
+                <option> 
+                    <% out.print(u.getNome()); %> 
+                    <input type="hidden" name="Huni" value="<%=cont2%>"/> 
+                </option>
                 <%     
                 }
                 %>
                 </select>
                 <br/>
                 
-             Cursos <select name="Universidade">
+             Cursos: <select name="Universidade">
                 <%
                 List<Curso> curso = DAO.ListarDAO.listarCurso();
-                for (Curso c : curso){ %>
-                <option> <% out.print(c.getDescricao());%> </option>
+                for (int cont3=0;cont3<curso.size();cont3++){ 
+                    Curso c = curso.get(cont3);%>
+                <option> 
+                    <% out.print(c.getDescricao());%> 
+                    <input type="hidden" name="Hcurso" value="<%=cont3%>"/>
+                </option>
                 <%     
                 }
                 %>
@@ -82,10 +93,13 @@
              <textarea name="SemConc" maxlength="1" cols="1" rows="1"></textarea>
                 </br>
                 
-             <input type="button" formaction="CadCurriculo.jsp" formmethod="post" value="Cadastrar"/>
-    
-             <input type="button" formaction="AltCurriculo.jsp" formmethod="post" value="Alterar"/>
-             
+             <input type="submit" value="Cadastrar"/>
+             <%
+             session.setAttribute("Area_Atuacao", areaatu);
+             session.setAttribute("Universidade", uni);
+             session.setAttribute("Curso", curso);
+             %>
         </form>
+                
     </body>
 </html>
