@@ -35,6 +35,7 @@
         <form action="Vagas.jsp">
             
             <input type="submit" value="Painel de Vagas"></br>
+            <input type="submit" value="Vagas cadastradas" formaction="MinhasVagas.jsp"><br/>
             <input type="submit" value="Sair" formaction="TelaInicial.jsp">
         </form>
     </body>

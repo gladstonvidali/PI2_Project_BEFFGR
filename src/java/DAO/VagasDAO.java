@@ -9,6 +9,7 @@ import JPA2.*;
 import Hibernate.*;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -77,4 +78,11 @@ public class VagasDAO {
             .setMaxResults(1).list().get(0);
         return v;
     }
+    
+    public static List<Vagas> buscarVagasCadastradas(int Cod_Usr) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query q = session.createSQLQuery("SELECT * FROM Vagas WHERE Cod_Vaga = (SELECT Cod_Vaga FROM Usuario_Vaga WHERE Cod_Usr="+Cod_Usr+");");      
+        return q.list();
+    }
+    
 }
