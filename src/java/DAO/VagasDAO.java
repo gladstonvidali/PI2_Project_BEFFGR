@@ -82,7 +82,8 @@ public class VagasDAO {
     public static List<Vagas> buscarVagasCadastradas(int Cod_Usr) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query q = session.createSQLQuery("SELECT * FROM Vagas WHERE Cod_Vaga = (SELECT Cod_Vaga FROM Usuario_Vaga WHERE Cod_Usr="+Cod_Usr+");");      
-        return q.list();
+        List<Vagas> vagas = q.list();
+        return vagas;
     }
     
 }
