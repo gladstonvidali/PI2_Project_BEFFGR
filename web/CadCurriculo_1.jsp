@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Processando Informações</title>
     </head>
     <body>
         <%
@@ -79,9 +79,9 @@
         repCurriculo.Adicionar(c);
         
          out.print("Adicionado com sucesso!"+"<br/>");
-      
+        
         %>
-        <a href="Menu.jsp">Voltar ao Menu</a>
+        <a href="CadCurriculoValidacao.jsp">Voltar ao Menu</a>
         <%
         
         }else{
@@ -89,7 +89,7 @@
         FormacaoAcademica fa = repFormacaoAcademica.BuscarCodUsr(u.getCodUsr()).get(0);
         Curriculo c = repCurriculo.BuscarCodUsr(u.getCodUsr()).get(0);
         ExpProfSistema exps = repExpProfSistema.BuscarCodUsr(u.getCodUsr()).get(0);
-        /*
+        
         List<AreaAtuacaoSistema> areaatu = (List<AreaAtuacaoSistema>) session.getAttribute("Area_Atuacao");
         List<Universidade> uni = (List<Universidade>) session.getAttribute("Universidade");
         List<Curso> curso = (List<Curso>) session.getAttribute("Curso");
@@ -121,24 +121,24 @@
         fa.setAnoFormacao(Integer.parseInt(request.getParameter("Ano").toString()));
         fa.setSemestreAtual(Integer.parseInt(request.getParameter("SemAtual").toString()));
         fa.setSemestreFormacao(Integer.parseInt(request.getParameter("SemConc").toString()));
-        repFormacaoAcademica.Adicionar(fa);
+        repFormacaoAcademica.Alterar(fa);
         //
         
         exps.setDescricao(request.getParameter("Exp_Desc"));
         exps.setCodEmpresa(empresa.get(cont4).getCodEmpresa());
-        repExpProfSistema.Adicionar(exps);
+        repExpProfSistema.Alterar(exps);
         //
         
         c.setCerficado(request.getParameter("Certficado").toString());
         c.setCodAreaAtuacao(areaatu.get(cont1).getCodAreaAtuacao());
         c.setCodUsr(u.getCodUsr());
         c.setCodExpProf(exps.getCodExpProf());
-        repCurriculo.Adicionar(c);
+        repCurriculo.Alterar(c);
         
         out.print("Alterado com sucesso!"+"<br/>");
- *      */
+ 
         %>
-        <a href="Menu.jsp">Voltar ao Menu</a>
+        <a href="CadCurriculoValidacao.jsp">Voltar ao Menu</a>
         <%
           }
             

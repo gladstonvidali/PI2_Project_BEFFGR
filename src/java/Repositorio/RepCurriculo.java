@@ -86,7 +86,8 @@ public class RepCurriculo {
       public void Alterar(Curriculo curriculo){
           //em.getEntityManagerFactory();
           em.getTransaction().begin();
-          em.refresh(curriculo);
+          Curriculo c = em.find(Curriculo.class, curriculo.getCodCv());
+          em.persist(c);
           em.getTransaction().commit();
       }
     

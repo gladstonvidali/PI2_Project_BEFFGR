@@ -85,7 +85,8 @@ public class RepExpProfSistema {
       public void Alterar(ExpProfSistema expprofsis){
           //em.getEntityManagerFactory();
           em.getTransaction().begin();
-          em.refresh(expprofsis);
+          ExpProfSistema exp = em.find(ExpProfSistema.class, expprofsis.getCodExpProf());
+          em.persist(exp);
           em.getTransaction().commit();
       }
     

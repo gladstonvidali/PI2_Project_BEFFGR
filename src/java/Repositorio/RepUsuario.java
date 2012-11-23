@@ -79,7 +79,8 @@ public class RepUsuario {
       public void Alterar(Usuario a){
         //  em.getEntityManagerFactory();
           em.getTransaction().begin();
-          em.refresh(a);
+          Usuario u = em.find(Usuario.class, a.getCodUsr());
+          em.persist(u);
           em.getTransaction().commit();
       }
       

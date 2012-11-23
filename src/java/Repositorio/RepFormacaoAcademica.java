@@ -87,7 +87,8 @@ public class RepFormacaoAcademica {
       public void Alterar(FormacaoAcademica formacaoacademica){
           //em.getEntityManagerFactory();
           em.getTransaction().begin();
-          em.refresh(formacaoacademica);
+          FormacaoAcademica  fa = em.find(FormacaoAcademica.class, formacaoacademica.getCodFa());
+          em.persist(fa);
           em.getTransaction().commit();
       }
     

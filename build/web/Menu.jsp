@@ -29,7 +29,7 @@
         session.setAttribute("pUsuario", pU);
         %>
         <h1>Menu</h1>
-        <a href="Cadastro_1.jsp">Editar cadastro</a>
+        <a href="MenuCadastro.jsp">Editar cadastro</a>
         </br>
         ---------------------------------------------
         <br/>
