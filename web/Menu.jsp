@@ -33,7 +33,7 @@
         </br>
         ---------------------------------------------
         <br/>
-        <a href="Curriculo.jsp">Editar informações profissionais</a>
+        <a href="Curriculo_1.jsp">Editar informações profissionais</a>
         <br/>
         ---------------------------------------------
         </br>

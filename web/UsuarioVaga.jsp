@@ -5,8 +5,9 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="JPA2.*"%>
+<%@page import="DB.*"%>
 <%@page import="DAO.*"%>
+<%@page import="Repositorio.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,8 +17,9 @@
     </head>
     <body>
         <%
-        Usuario sU = (Usuario) session.getAttribute("Usuario");
+        Usuario sU = (Usuario) session.getAttribute("pUsuario");
         List<Vagas> vagas = (List<Vagas>) session.getAttribute("ListVagas");
+        RepUsuarioVaga repUsuarioVaga = new RepUsuarioVaga();
         
         String sCont1 = request.getParameter("Vagas");
         sCont1 = String.valueOf(sCont1.charAt(0));
@@ -27,7 +29,7 @@
         UsuarioVaga uv = new UsuarioVaga();
         uv.setCodUsr(sU.getCodUsr());
         uv.setCodVaga(vagas.get(cont1).getCodVaga());
-        DAO.UsuarioVagaDAO.inserir(uv);
+        repUsuarioVaga.Adicionar(uv);
         %>
         <jsp:forward page="Menu.jsp"/>
         <%

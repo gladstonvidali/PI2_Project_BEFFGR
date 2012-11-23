@@ -12,45 +12,45 @@ import javax.persistence.*;
  *
  * @author gladstonvidali
  */
-public class RepAreaAtuacao {
+public class RepUniversidade {
     public EntityManagerFactory factory = Persistence.createEntityManagerFactory("mack");
     
     private EntityManager em;
     
-    public RepAreaAtuacao(){
+    public RepUniversidade(){
         em = createEntityManager();
     }
+    
     private EntityManager createEntityManager(){
         return factory.createEntityManager();
     }
     
-    public void Adicionar(AreaAtuacaoSistema area){
-       // em.getEntityManagerFactory();
+    public void Adicionar(Universidade universidade){
+        //em.getEntityManagerFactory();
         em.getTransaction().begin();
-        em.persist(area);
+        em.persist(universidade);
         em.getTransaction().commit();
     }
     
-    public List<AreaAtuacaoSistema> Buscar(int codAreaAtuacao){
-        //em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM AreaAtuacaoSistema e WHERE e.codAreaAtuacao LIKE :codAreaAtuacao")
-                .setParameter("codAreaAtuacao", codAreaAtuacao);
-        List<AreaAtuacaoSistema> u = query.getResultList();
-        return u;
+    public List<Universidade> Buscar(int cod_Uni){
+        Query query = em.createQuery("SELECT e FROM Universidade e WHERE e.codUniversidade LIKE :cod_Uni")
+                .setParameter("cod_Uni", cod_Uni);
+        List<Universidade> v = query.getResultList();
+        return v;
     }
     
-    public List<AreaAtuacaoSistema> BuscarTodos(){
-       // em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM AreaAtuacaoSistema e");
-        List<AreaAtuacaoSistema> usuarios = query.getResultList();
-        return usuarios;
+    public List<Universidade> BuscarTodos(){
+        //em.getEntityManagerFactory();
+        Query query = em.createQuery("SELECT e FROM Universidade e");
+        List<Universidade> vagas = query.getResultList();
+        return vagas;
     }
-    public boolean remover(int codAreaAtuacao){
+    public boolean remover(int cod_Uni){
         boolean status = false;
         try{
-          //  em.getEntityManagerFactory();
+            //em.getEntityManagerFactory();
             em.getTransaction().begin();
-            AreaAtuacaoSistema a1 = Buscar(codAreaAtuacao).get(0);
+            Universidade a1 = Buscar(cod_Uni).get(0);
             em.remove(a1);
             em.getTransaction().commit();
             return status = true;
@@ -61,12 +61,12 @@ public class RepAreaAtuacao {
         }
     }
     
-      public boolean remover(AreaAtuacaoSistema area){
+      public boolean remover(Universidade universidade){
         boolean status = false;
         try{
-          //  em.getEntityManagerFactory();
+            //em.getEntityManagerFactory();
             em.getTransaction().begin();
-            em.remove(area);
+            em.remove(universidade);
             em.getTransaction().commit();
             return status = true;
         }
@@ -76,12 +76,13 @@ public class RepAreaAtuacao {
         }
       }
       
-      public void Alterar(AreaAtuacaoSistema a){
-       //   em.getEntityManagerFactory();
+      public void Alterar(Universidade universidade){
+          //em.getEntityManagerFactory();
           em.getTransaction().begin();
-          em.refresh(a);
+          em.refresh(universidade);
           em.getTransaction().commit();
       }
     
 }
+
 
