@@ -16,13 +16,14 @@
     </head>
     <body>
         <form>
-        <h1>Vagas encontradas</h1>
+        <h1>Minhas Vagas</h1>
         
                 <%
                 DB.Usuario pU = (DB.Usuario) session.getAttribute("pUsuario");
                 RepVagas repVagas = new RepVagas();
                 RepAreaAtuacao repAreaAtuacao = new RepAreaAtuacao();
                 RepEmpresa repEmpresa = new RepEmpresa();
+                
                 List<Vagas> vagas = repVagas.BuscarCadastradas(pU.getCodUsr());
                 
                 %>
@@ -46,10 +47,11 @@
                 </select>
                 <br/>
                 <%
-                
+                session.setAttribute("ListaVagas", vagas);
                 %>
                 
                 <br/>
+                <input type="submit" value="Remover" formaction="RemoverVaga.jsp"><br/>
                 <input type="submit" value="Menu" formaction="Menu.jsp">
                 </form>
     </body>

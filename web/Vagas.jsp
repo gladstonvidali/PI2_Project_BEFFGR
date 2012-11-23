@@ -50,8 +50,6 @@
                 <input type="submit" value="Cadastrar"/></br>
        
                 <input type="submit" value="Menu" formaction="Menu.jsp">
-                </form>
-                
+        </form>            
     </body>
 </html>
-

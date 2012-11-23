@@ -41,10 +41,10 @@ public class RepVagas {
     
      public List<Vagas> BuscarCadastradas(int cod_Usr){
        
-        Query query = em.createQuery("SELECT v FROM Vagas v WHERE EXISTS ( SELECT u FROM UsuarioVaga u WHERE u.codUsr LIKE :cod_Usr )")
+        Query query = em.createQuery("SELECT v FROM Vagas v, UsuarioVaga uv WHERE uv.codUsr LIKE :cod_Usr AND v.codVaga = uv.codVaga")
                 .setParameter("cod_Usr", cod_Usr);
-       // Query query1 = em.createNamedQuery("SELECT * FROM Vagas v WHERE v.Cod_Vaga = "
-       //         + "(SELECT uv.Cod_Vaga FROM Usuario_Vaga uv WHERE uv.Cod_Usr="+cod_Usr+"", Vagas.class);        
+       // Query query1 = em.createNamedQuery("SELECT * FROM Vagas v JOIN 
+        //              Usuario_Vaga uv ON v.Cod_Vaga = uv.Cod_Vaga;", Vagas.class);        
         List<Vagas> v = query.getResultList();
         return v;
     }
@@ -71,12 +71,13 @@ public class RepVagas {
         }
     }
     
-      public boolean remover(Vagas usuario){
+      public boolean remover(Vagas vaga){
         boolean status = false;
         try{
             //em.getEntityManagerFactory();
             em.getTransaction().begin();
-            em.remove(usuario);
+            Vagas v = em.find(Vagas.class, vaga.getCodVaga());
+            em.remove(v);
             em.getTransaction().commit();
             return status = true;
         }
