@@ -15,9 +15,8 @@
         Tela de Cadastro
         -->
         
-        
         <h1>Cadastro</h1>
-        <form action="UsuarioServlet" method="post">
+        <form action="UsuarioServlet1" method="post">
             Nome: <input type="text" name="nome"/></br>
             Senha: <input type="text" name="senha"/></br>
             CPF: <input type="text" name="cpf"/></br>

@@ -28,7 +28,7 @@
         RepCurriculo repCurriculo = new RepCurriculo();
         //
        if ( repFormacaoAcademica.BuscarCodUsr(u.getCodUsr()).isEmpty() == true){
-        /*
+        
         FormacaoAcademica fa = new FormacaoAcademica();
         Curriculo c = new Curriculo();
         ExpProfSistema exps = new ExpProfSistema();
@@ -79,7 +79,7 @@
         repCurriculo.Adicionar(c);
         
          out.print("Adicionado com sucesso!"+"<br/>");
- *       */
+      
         %>
         <a href="Menu.jsp">Voltar ao Menu</a>
         <%

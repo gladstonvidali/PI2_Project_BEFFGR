@@ -1,6 +1,7 @@
 
 <%@page import="org.hibernate.Query"%>
-<%@page import="JPA2.*"%>
+<%@page import="DB.*"%>
+<%@page import="Repositorio.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
@@ -14,14 +15,12 @@
     </head>
     <body>
         <%
+        RepUsuario repUsuario = new RepUsuario();
         
-        JPA2.Usuario usuario = DAO.UsuarioDAO.validarLogin(request.getParameter("cpf").toString(), 
-                    request.getParameter("senha").toString());
-        if (usuario != null){
+        if (repUsuario.validarLogin(request.getParameter("cpf"), request.getParameter("senha")) == true){
                 %>
                 <jsp:forward page="Menu.jsp"/>
-                <%
-                    
+                <%        
             }else{
                 %>
                 <jsp:forward page="TelaInicial.jsp"/>

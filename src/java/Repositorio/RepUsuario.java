@@ -4,7 +4,7 @@
  */
 package Repositorio;
 
-import DB.Usuario;
+import DB.*;
 import java.util.List;
 import javax.persistence.*;
 
@@ -33,7 +33,8 @@ public class RepUsuario {
     
     public List<Usuario> Buscar(String cpf){
         //em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM Usuario e");
+        Query query = em.createQuery("SELECT e FROM Usuario e WHERE e.cpf LIKE :cpf")
+                .setParameter("cpf", cpf);
         List<Usuario> u = query.getResultList();
         return u;
     }
@@ -80,6 +81,17 @@ public class RepUsuario {
           em.getTransaction().begin();
           em.refresh(a);
           em.getTransaction().commit();
+      }
+      
+      public boolean validarLogin(String cpf, String senha){
+          Query query = em.createQuery("SELECT e FROM Usuario e WHERE e.cpf LIKE :cpf AND e.senha LIKE :senha")
+                  .setParameter("cpf", cpf)
+                  .setParameter("senha", senha);
+          List<Usuario> u = query.getResultList();
+          if(u.isEmpty() != true){
+              return true;
+          }
+          return false;
       }
     
 }
