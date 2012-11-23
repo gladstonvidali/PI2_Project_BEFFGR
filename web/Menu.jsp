@@ -1,4 +1,6 @@
 
+<%@page import="javax.persistence.*"%>
+<%@page import="Repositorio.*"%>
 <%@page import="JPA2.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,6 +24,9 @@
         Usuario sU = DAO.UsuarioDAO.buscarUsuario(session.getAttribute("cpf").toString());
         session.setAttribute("Usuario", sU);
         
+        Repositorio.RepUsuario repUsuario = new RepUsuario();
+        DB.Usuario pU = repUsuario.Buscar(session.getAttribute("cpf").toString()).get(0);
+        session.setAttribute("pUsuario", pU);
         %>
         <h1>Menu</h1>
         <a href="Cadastro_1.jsp">Editar cadastro</a>

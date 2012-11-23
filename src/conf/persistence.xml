@@ -3,7 +3,17 @@
   <persistence-unit name="mack" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <non-jta-data-source>mack</non-jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <class>DB.AreaAtuacaoSistema</class>
+    <class>DB.Curriculo</class>
+    <class>DB.Curso</class>
+    <class>DB.Empresa</class>
+    <class>DB.ExpProfSistema</class>
+    <class>DB.FormacaoAcademica</class>
+    <class>DB.Universidade</class>
+    <class>DB.Usuario</class>
+    <class>DB.UsuarioVaga</class>
+    <class>DB.Vagas</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>

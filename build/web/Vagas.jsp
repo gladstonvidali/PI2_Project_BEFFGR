@@ -1,5 +1,6 @@
-<%@page import="JPA2.*"%>
+<%@page import="DB.*"%>
 <%@page import="DAO.*"%>
+<%@page import="Repositorio.*"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="org.hibernate.SessionFactory"%>
@@ -17,19 +18,21 @@
         <h1>Vagas encontradas</h1>
         
                 <%
-                Usuario sU = (Usuario) session.getAttribute("Usuario");
+                Usuario sU = (Usuario) session.getAttribute("pUsuario");
                 %>
                 Vagas em aberto: <select name="Vagas">
                 <%
-                List<Vagas> vagas = DAO.ListarDAO.listarVagas();
+                RepVagas repVagas = new RepVagas();
+                
+                List<Vagas> vagas = repVagas.BuscarTodos();
 
                 for(int cont1=0;cont1<vagas.size();cont1++){
                     Vagas v = vagas.get(cont1);
-                    AreaAtuacaoSistema aa = DAO.AreaAtuaDAO.buscarAreaAtuacao(v.getCodAreaAtuacao());
+                    //AreaAtuacaoSistema aa = DAO.AreaAtuaDAO.buscarAreaAtuacao(v.getCodAreaAtuacao());
                     %>
                     <option> 
                         <%
-                        out.print(cont1 + " - "+ v.getDescricao()+ " -R$: "+v.getSalario()+ " -Area de Atuação: "+aa.getDescricao());
+                        out.print(cont1 + " - "+ v.getDescricao()+ " -R$: "+v.getSalario()+ " -Area de Atuação: ");
                         %>
                     </option>
                     <%

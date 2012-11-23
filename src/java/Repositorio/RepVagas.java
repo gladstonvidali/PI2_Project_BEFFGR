@@ -4,7 +4,7 @@
  */
 package Repositorio;
 
-import DB.Usuario;
+import DB.*;
 import java.util.List;
 import javax.persistence.*;
 
@@ -12,44 +12,55 @@ import javax.persistence.*;
  *
  * @author gladstonvidali
  */
-public class RepUsuario {
+public class RepVagas {
     public EntityManagerFactory factory = Persistence.createEntityManagerFactory("mack");
     
     private EntityManager em;
     
-    public RepUsuario(){
+    public RepVagas(){
         em = createEntityManager();
     }
+    
     private EntityManager createEntityManager(){
         return factory.createEntityManager();
     }
     
-    public void Adicionar(Usuario usuario){
+    public void Adicionar(Vagas vaga){
         //em.getEntityManagerFactory();
         em.getTransaction().begin();
-        em.persist(usuario);
+        em.persist(vaga);
         em.getTransaction().commit();
     }
     
-    public List<Usuario> Buscar(String cpf){
-        //em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM Usuario e");
-        List<Usuario> u = query.getResultList();
-        return u;
+    public List<Vagas> Buscar(int cod_Vaga){
+        Query query = em.createQuery("SELECT e FROM Vagas e WHERE e.codVaga LIKE :cod_Vaga")
+                .setParameter("cod_Vaga", cod_Vaga);
+        List<Vagas> v = query.getResultList();
+        return v;
     }
     
-    public List<Usuario> BuscarTodos(){
-        //em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM Usuario e");
-        List<Usuario> usuarios = query.getResultList();
-        return usuarios;
+     public List<Vagas> BuscarCadastradas(int cod_Usr){
+       
+        Query query = em.createQuery("SELECT v FROM Vagas v WHERE EXISTS ( SELECT u FROM UsuarioVaga u WHERE u.codUsr LIKE :cod_Usr )")
+                .setParameter("cod_Usr", cod_Usr);
+       // Query query1 = em.createNamedQuery("SELECT * FROM Vagas v WHERE v.Cod_Vaga = "
+       //         + "(SELECT uv.Cod_Vaga FROM Usuario_Vaga uv WHERE uv.Cod_Usr="+cod_Usr+"", Vagas.class);        
+        List<Vagas> v = query.getResultList();
+        return v;
     }
-    public boolean remover(String cpf){
+    
+    public List<Vagas> BuscarTodos(){
+        //em.getEntityManagerFactory();
+        Query query = em.createQuery("SELECT e FROM Vagas e");
+        List<Vagas> vagas = query.getResultList();
+        return vagas;
+    }
+    public boolean remover(int cod_Vaga){
         boolean status = false;
         try{
-          //  em.getEntityManagerFactory();
+            //em.getEntityManagerFactory();
             em.getTransaction().begin();
-            Usuario a1 = Buscar(cpf).get(0);
+            Vagas a1 = Buscar(cod_Vaga).get(0);
             em.remove(a1);
             em.getTransaction().commit();
             return status = true;
@@ -60,10 +71,10 @@ public class RepUsuario {
         }
     }
     
-      public boolean remover(Usuario usuario){
+      public boolean remover(Vagas usuario){
         boolean status = false;
         try{
-          //  em.getEntityManagerFactory();
+            //em.getEntityManagerFactory();
             em.getTransaction().begin();
             em.remove(usuario);
             em.getTransaction().commit();
@@ -75,11 +86,12 @@ public class RepUsuario {
         }
       }
       
-      public void Alterar(Usuario a){
-        //  em.getEntityManagerFactory();
+      public void Alterar(Vagas a){
+          //em.getEntityManagerFactory();
           em.getTransaction().begin();
           em.refresh(a);
           em.getTransaction().commit();
       }
     
 }
+

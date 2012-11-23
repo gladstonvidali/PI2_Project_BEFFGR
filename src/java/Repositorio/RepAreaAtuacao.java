@@ -4,7 +4,7 @@
  */
 package Repositorio;
 
-import DB.Usuario;
+import DB.*;
 import java.util.List;
 import javax.persistence.*;
 
@@ -12,44 +12,45 @@ import javax.persistence.*;
  *
  * @author gladstonvidali
  */
-public class RepUsuario {
+public class RepAreaAtuacao {
     public EntityManagerFactory factory = Persistence.createEntityManagerFactory("mack");
     
     private EntityManager em;
     
-    public RepUsuario(){
+    public RepAreaAtuacao(){
         em = createEntityManager();
     }
     private EntityManager createEntityManager(){
         return factory.createEntityManager();
     }
     
-    public void Adicionar(Usuario usuario){
-        //em.getEntityManagerFactory();
+    public void Adicionar(AreaAtuacaoSistema area){
+       // em.getEntityManagerFactory();
         em.getTransaction().begin();
-        em.persist(usuario);
+        em.persist(area);
         em.getTransaction().commit();
     }
     
-    public List<Usuario> Buscar(String cpf){
+    public List<AreaAtuacaoSistema> Buscar(int codAreaAtuacao){
         //em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM Usuario e");
-        List<Usuario> u = query.getResultList();
+        Query query = em.createQuery("SELECT e FROM AreaAtuacaoSistema e WHERE e.codAreaAtuacao LIKE :codAreaAtuacao")
+                .setParameter("codAreaAtuacao", codAreaAtuacao);
+        List<AreaAtuacaoSistema> u = query.getResultList();
         return u;
     }
     
-    public List<Usuario> BuscarTodos(){
-        //em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT e FROM Usuario e");
-        List<Usuario> usuarios = query.getResultList();
+    public List<AreaAtuacaoSistema> BuscarTodos(){
+       // em.getEntityManagerFactory();
+        Query query = em.createQuery("SELECT * FROM AreaAtuacaoSistema");
+        List<AreaAtuacaoSistema> usuarios = query.getResultList();
         return usuarios;
     }
-    public boolean remover(String cpf){
+    public boolean remover(int codAreaAtuacao){
         boolean status = false;
         try{
           //  em.getEntityManagerFactory();
             em.getTransaction().begin();
-            Usuario a1 = Buscar(cpf).get(0);
+            AreaAtuacaoSistema a1 = Buscar(codAreaAtuacao).get(0);
             em.remove(a1);
             em.getTransaction().commit();
             return status = true;
@@ -60,12 +61,12 @@ public class RepUsuario {
         }
     }
     
-      public boolean remover(Usuario usuario){
+      public boolean remover(AreaAtuacaoSistema area){
         boolean status = false;
         try{
           //  em.getEntityManagerFactory();
             em.getTransaction().begin();
-            em.remove(usuario);
+            em.remove(area);
             em.getTransaction().commit();
             return status = true;
         }
@@ -75,11 +76,12 @@ public class RepUsuario {
         }
       }
       
-      public void Alterar(Usuario a){
-        //  em.getEntityManagerFactory();
+      public void Alterar(AreaAtuacaoSistema a){
+       //   em.getEntityManagerFactory();
           em.getTransaction().begin();
           em.refresh(a);
           em.getTransaction().commit();
       }
     
 }
+

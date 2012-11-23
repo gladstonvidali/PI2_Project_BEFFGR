@@ -4,9 +4,9 @@
  */
 package Repositorio;
 
-import javax.persistence.*;
-import JPA2.*;
+import DB.*;
 import java.util.List;
+import javax.persistence.*;
 
 /**
  *
@@ -20,30 +20,45 @@ public class RepEmpresa {
         return factory.createEntityManager();
     }
     
+    public RepEmpresa(){
+        em = createEntityManager();
+    }
+    
     public void Adicionar(Empresa usuario){
-        em.getEntityManagerFactory();
+        //em.getEntityManagerFactory();
         em.getTransaction().begin();
         em.persist(usuario);
         em.getTransaction().commit();
     }
     
-    public Usuario Buscar(String cnpj){
-        em.getEntityManagerFactory();
-        return em.find(Usuario.class, cnpj);
+    public List<Empresa> BuscarCNPJ(String cnpj){
+       // em.getEntityManagerFactory();
+        Query query = em.createQuery("SELECT e FROM Empresa e WHERE e.cnpj LIKE :cnpj")
+                .setParameter("cnpj", cnpj);
+        List<Empresa> usuarios = query.getResultList();
+        return usuarios;
     }
     
-    public List<Usuario> BuscarTodos(){
-        em.getEntityManagerFactory();
-        Query query = em.createQuery("SELECT * FROM Empresa");
-        List<Usuario> usuarios = query.getResultList();
+     public List<Empresa> BuscarCod(int codEmpresa){
+       // em.getEntityManagerFactory();
+        Query query = em.createQuery("SELECT e FROM Empresa e WHERE e.codEmpresa LIKE :codEmpresa")
+                .setParameter("codEmpresa", codEmpresa);
+        List<Empresa> usuarios = query.getResultList();
+        return usuarios;
+    }
+     
+    public List<Empresa> BuscarTodos(){
+      //  em.getEntityManagerFactory();
+        Query query = em.createQuery("SELECT e FROM Empresa e");
+        List<Empresa> usuarios = query.getResultList();
         return usuarios;
     }
     public boolean remover(String cnpj){
         boolean status = false;
         try{
-            em.getEntityManagerFactory();
+        //    em.getEntityManagerFactory();
             em.getTransaction().begin();
-            Usuario a1 = Buscar(cnpj);
+            Empresa a1 = BuscarCNPJ(cnpj).get(0);
             em.remove(a1);
             em.getTransaction().commit();
             return status = true;
@@ -54,12 +69,12 @@ public class RepEmpresa {
         }
     }
     
-      public boolean remover(Empresa usuario){
+      public boolean remover(Empresa empresa){
         boolean status = false;
         try{
-            em.getEntityManagerFactory();
+        //    em.getEntityManagerFactory();
             em.getTransaction().begin();
-            em.remove(usuario);
+            em.remove(empresa);
             em.getTransaction().commit();
             return status = true;
         }
@@ -69,10 +84,10 @@ public class RepEmpresa {
         }
       }
       
-      public void Alterar(Empresa a){
-          em.getEntityManagerFactory();
+      public void Alterar(Empresa empresa){
+        //  em.getEntityManagerFactory();
           em.getTransaction().begin();
-          em.refresh(a);
+          em.refresh(empresa);
           em.getTransaction().commit();
       }
     

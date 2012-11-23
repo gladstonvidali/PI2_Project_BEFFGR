@@ -4,7 +4,8 @@
     Author     : gladstonvidali
 --%>
 
-<%@page import="JPA2.*"%>
+<%@page import="DB.*"%>
+<%@page import="Repositorio.*"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,22 +19,33 @@
         <h1>Vagas encontradas</h1>
         
                 <%
-                Usuario sU = (Usuario) session.getAttribute("Usuario");
+                DB.Usuario pU = (DB.Usuario) session.getAttribute("pUsuario");
+                RepVagas repVagas = new RepVagas();
+                RepAreaAtuacao repAreaAtuacao = new RepAreaAtuacao();
+                RepEmpresa repEmpresa = new RepEmpresa();
+                List<Vagas> vagas = repVagas.BuscarCadastradas(pU.getCodUsr());
+                
                 %>
-                Vagas em aberto: <select name="Vagas">
+                Vagas: <select name="Vagas">
+                <%
+                for(int cont1=0;cont1<vagas.size();cont1++){
+                Vagas v = vagas.get(cont1);
+                List<AreaAtuacaoSistema> atuacaoSistemas = repAreaAtuacao.Buscar(v.getCodAreaAtuacao());
+                List<Empresa> empresas = repEmpresa.BuscarCod(v.getCodEmpresa());
+                AreaAtuacaoSistema aas = atuacaoSistemas.get(0);
+                Empresa e = empresas.get(0);
+                %>
                     <option>
                 <%
-                List<Vagas> vagas = DAO.VagasDAO.buscarVagasCadastradas(sU.getCodUsr());
+                    out.print(cont1 +" -  " + vagas.get(cont1).getDescricao() +" -R$: " + vagas.get(cont1).getSalario() + " -Area de Atuação: "+aas.getDescricao() + " -Empresa: "+e.getNome());
                 %>
                     </option>
+                <%
+                }    
+                %>
                 </select>
                 <br/>
                 <%
-                Vagas v = DAO.VagasDAO.buscarVagas(2);
-                out.print(v.getDescricao());
-                
-                List<Vagas> Lv = DAO.VagasDAO.buscarVagasCadastradas(7);
-                Lv.get(0).getDescricao();
                 
                 %>
                 
